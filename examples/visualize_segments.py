@@ -273,7 +273,12 @@ def main():
     fuzzy_params = config.fuzzy_clustering
     
     # Generate enriched data
-    generator = RetailDataGenerator(seed=seed)
+    faker_cfg = config.data_generation.get('faker', {}) if isinstance(config.data_generation, dict) else {}
+    generator = RetailDataGenerator(
+        seed=seed,
+        faker_enabled=faker_cfg.get('enabled', True),
+        faker_locale=faker_cfg.get('locale', 'en_US')
+    )
     customer_data = generator.generate_customer_data(n_customers=num_customers)
     
     # Save enriched data using config paths

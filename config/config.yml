@@ -48,6 +48,11 @@ data_generation:
   n_customers: 500
   random_seed: 42
   
+  # Faker settings for realistic profile fields
+  faker:
+    enabled: true      # Toggle to include first_name, last_name, email, phone, address, etc.
+    locale: "en_US"   # Locale for Faker profile data (e.g., en_US, en_GB, fr_FR)
+  
   # Customer segment distribution (must sum to 1.0)
   segment_probabilities:
     high_value_frequent: 0.20      # Segment 1
@@ -85,18 +90,20 @@ data_generation:
       frequency_per_month: [0.05, 0.3]
       return_rate: [0.20, 0.40]
   
-  # Enriched feature definitions
+  # Enriched feature definitions - Product Hierarchy
+  # Note: Classes belong to departments in retail hierarchy
   departments:
-    - "Accessories & Footwear"
-    - "Health & Wellness"
-    - "Home & Lifestyle"
-  
-  classes:
-    - "Bags & Wallets"
-    - "Soft & Hard Accessories"
-    - "Consumables"
-    - "Personal Care"
-    - "Bedding"
+    "Accessories & Footwear":
+      classes:
+        - "Bags & Wallets"
+        - "Soft & Hard Accessories"
+    "Health & Wellness":
+      classes:
+        - "Consumables"
+        - "Personal Care"
+    "Home & Lifestyle":
+      classes:
+        - "Bedding"
   
   child_ages:
     - "Baby"
