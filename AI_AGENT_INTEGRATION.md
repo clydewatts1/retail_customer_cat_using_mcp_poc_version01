@@ -97,7 +97,7 @@ Last purchase: {customer_context['recent_activity']['days_since_purchase']} days
 Total lifetime value: ${customer_context['recent_activity']['total_revenue']:,.2f}
 
 Recommended strategies:
-{chr(10).join(f'- {s}' for s in customer_context['strategies'][:3])}
+{'\n'.join(f'- {s}' for s in customer_context['strategies'][:3])}
 
 Based on this information, help the customer with their inquiry.
 """
