@@ -52,7 +52,7 @@ fi
 
 # Test Python package import
 echo "✓ Testing Python package import..."
-if PYTHONPATH=src python -c "import retail_customer_cat; print(f'  Package version: {retail_customer_cat.__version__}')" 2>/dev/null; then
+if cd src && python -c "import retail_customer_cat; print('  Package version: ' + retail_customer_cat.__version__)" 2>/dev/null && cd ..; then
     echo "  ✓ Package imports successfully"
 else
     echo "  ✗ Package import failed"
