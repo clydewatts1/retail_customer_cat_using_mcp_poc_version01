@@ -6,8 +6,8 @@ import sys
 import os
 from pathlib import Path
 
-# Add parent directory to path to import from src
-sys.path.insert(0, str(Path(__file__).parent.parent))
+# Add src directory to path to import project package
+sys.path.insert(0, str(Path(__file__).parent.parent / 'src'))
 
 from customer_segmentation import RetailDataGenerator, get_config
 import pandas as pd
@@ -21,8 +21,13 @@ if __name__ == "__main__":
     num_customers = config.data_generation['n_customers']
     seed = config.data_generation['random_seed']
     
-    # Initialize generator with config seed
-    generator = RetailDataGenerator(seed=seed)
+    # Initialize generator with config seed and faker settings
+    faker_cfg = config.data_generation.get('faker', {}) if isinstance(config.data_generation, dict) else {}
+    generator = RetailDataGenerator(
+        seed=seed,
+        faker_enabled=faker_cfg.get('enabled', True),
+        faker_locale=faker_cfg.get('locale', 'en_US')
+    )
     
     # Generate data with configured number of customers
     df = generator.generate_customer_data(num_customers)

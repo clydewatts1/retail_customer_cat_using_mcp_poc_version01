@@ -155,12 +155,37 @@ class Config:
     @property
     def departments(self) -> List[str]:
         """Get list of departments."""
-        return self.get('data_generation.departments', [])
+        dept_config = self.get('data_generation.departments', {})
+        if isinstance(dept_config, dict):
+            # New hierarchical format
+            return list(dept_config.keys())
+        else:
+            # Legacy list format
+            return dept_config
     
     @property
     def classes(self) -> List[str]:
         """Get list of product classes."""
-        return self.get('data_generation.classes', [])
+        dept_config = self.get('data_generation.departments', {})
+        if isinstance(dept_config, dict):
+            # New hierarchical format - extract all classes from all departments
+            all_classes = []
+            for dept, dept_data in dept_config.items():
+                if isinstance(dept_data, dict) and 'classes' in dept_data:
+                    all_classes.extend(dept_data['classes'])
+            return all_classes
+        else:
+            # Legacy list format
+            return self.get('data_generation.classes', [])
+    
+    def get_classes_for_department(self, department: str) -> List[str]:
+        """Get list of classes that belong to a specific department."""
+        dept_config = self.get('data_generation.departments', {})
+        if isinstance(dept_config, dict) and department in dept_config:
+            dept_data = dept_config[department]
+            if isinstance(dept_data, dict) and 'classes' in dept_data:
+                return dept_data['classes']
+        return []
     
     @property
     def child_ages(self) -> List[str]:

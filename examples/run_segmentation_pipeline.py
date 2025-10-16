@@ -47,7 +47,12 @@ def main():
     num_customers = config.data_generation['n_customers']
     seed = config.data_generation['random_seed']
     
-    data_generator = RetailDataGenerator(seed=seed)
+    faker_cfg = config.data_generation.get('faker', {}) if isinstance(config.data_generation, dict) else {}
+    data_generator = RetailDataGenerator(
+        seed=seed,
+        faker_enabled=faker_cfg.get('enabled', True),
+        faker_locale=faker_cfg.get('locale', 'en_US')
+    )
     customer_data = data_generator.generate_customer_data(n_customers=num_customers)
     
     # Save enriched data using config paths

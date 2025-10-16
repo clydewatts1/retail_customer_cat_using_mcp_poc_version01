@@ -17,6 +17,7 @@ This POC implements:
 - Generates synthetic customer sales data with realistic patterns
 - Includes key RFM (Recency, Frequency, Monetary) metrics
 - Creates multiple customer segments with distinct characteristics
+- Optional: Adds realistic profile fields using the Faker library (first_name, last_name, email, phone, address, city, state, zip_code, country, signup_date)
 
 ### 2. Fuzzy Clustering
 - Uses Fuzzy C-Means (FCM) algorithm for soft clustering
@@ -76,6 +77,7 @@ This will:
 3. Perform neural network clustering
 4. Enrich clusters with descriptions
 5. Export data for AI agents
+6. Optionally include realistic profile fields if enabled in config
 
 ### Using Individual Components
 
@@ -84,8 +86,8 @@ This will:
 ```python
 from customer_segmentation import RetailDataGenerator
 
-# Create generator
-generator = RetailDataGenerator(seed=42)
+# Create generator (Faker optional)
+generator = RetailDataGenerator(seed=42, faker_enabled=True, faker_locale='en_US')
 
 # Generate customer data
 customer_data = generator.generate_customer_data(n_customers=500)
@@ -160,6 +162,7 @@ After running the pipeline, you'll find these files in the `data/` directory:
 1. **customer_sales_data.csv**: Original synthetic customer data
 2. **customers_with_segments.csv**: Customer data with cluster assignments
 3. **customer_segments_for_ai.json**: Enriched segment profiles for AI agents
+4. If Faker is enabled, the enriched CSV will also contain profile columns: first_name, last_name, email, phone, address, city, state, zip_code, country, signup_date
 
 ## Customer Segments
 
@@ -197,6 +200,21 @@ Each segment includes:
 - Frequency (purchases per month)
 - Customer lifetime (months)
 - Return rate
+
+## Configuration: Faker profile fields
+
+Faker-driven profile fields are configurable in `config/config.yml`:
+
+```
+data_generation:
+    n_customers: 500
+    random_seed: 42
+    faker:
+        enabled: true      # Toggle to include profile fields
+        locale: "en_US"   # Choose a locale (e.g., en_US, en_GB, fr_FR)
+```
+
+The example scripts automatically pick up these settings and pass them to `RetailDataGenerator`.
 
 ## Evaluation Metrics
 
