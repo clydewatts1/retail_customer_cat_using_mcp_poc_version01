@@ -229,3 +229,9 @@ models/*
 
 # Jupyter Notebook outputs
 *.nbconvert.ipynb
+# Generated data and visualizations (regenerated on each run)
+data/*.csv
+data/*.json
+!data/.gitkeep
+visualizations/*.png
+!visualizations/.gitkeep
