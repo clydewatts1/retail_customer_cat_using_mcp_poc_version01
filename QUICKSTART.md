@@ -42,6 +42,7 @@ Raw customer data with features like:
 - Customer lifetime
 - Return rate
 
+
 ### 2. customers_with_segments.csv
 Customer data enriched with:
 - Fuzzy cluster assignment

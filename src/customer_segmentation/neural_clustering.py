@@ -7,27 +7,46 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
-import tensorflow as tf
-from tensorflow import keras
-from tensorflow.keras import layers
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from torch.utils.data import DataLoader, TensorDataset
 from typing import Tuple, Optional
 
 
+class Autoencoder(nn.Module):
+    def __init__(self, input_dim, encoding_dim):
+        super().__init__()
+        self.encoder = nn.Sequential(
+            nn.Linear(input_dim, 64),
+            nn.ReLU(),
+            nn.BatchNorm1d(64),
+            nn.Linear(64, 32),
+            nn.ReLU(),
+            nn.BatchNorm1d(32),
+            nn.Linear(32, encoding_dim),
+            nn.ReLU()
+        )
+        self.decoder = nn.Sequential(
+            nn.Linear(encoding_dim, 32),
+            nn.ReLU(),
+            nn.BatchNorm1d(32),
+            nn.Linear(32, 64),
+            nn.ReLU(),
+            nn.BatchNorm1d(64),
+            nn.Linear(64, input_dim)
+        )
+    def forward(self, x):
+        encoded = self.encoder(x)
+        decoded = self.decoder(encoded)
+        return decoded
+    def encode(self, x):
+        return self.encoder(x)
+
 class NeuralCustomerSegmentation:
-    """Deep clustering using autoencoder for customer segmentation."""
-    
+    """Deep clustering using autoencoder (PyTorch) for customer segmentation."""
     def __init__(self, n_clusters: int = 4, encoding_dim: int = 10,
-                 epochs: int = 100, batch_size: int = 32, seed: Optional[int] = 42):
-        """
-        Initialize neural network clustering model.
-        
-        Args:
-            n_clusters: Number of clusters to create
-            encoding_dim: Dimension of encoded representation
-            epochs: Number of training epochs
-            batch_size: Batch size for training
-            seed: Random seed for reproducibility
-        """
+                 epochs: int = 100, batch_size: int = 32, seed: Optional[int] = 42, device: Optional[str] = None):
         self.n_clusters = n_clusters
         self.encoding_dim = encoding_dim
         self.epochs = epochs
@@ -35,13 +54,11 @@ class NeuralCustomerSegmentation:
         self.seed = seed
         self.scaler = StandardScaler()
         self.autoencoder = None
-        self.encoder = None
         self.kmeans = None
         self.feature_cols = None
-        
-        # Set random seeds
+        self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
         np.random.seed(seed)
-        tf.random.set_seed(seed)
+        torch.manual_seed(seed)
     
     def prepare_features(self, data: pd.DataFrame) -> Tuple[np.ndarray, list]:
         """
@@ -70,33 +87,7 @@ class NeuralCustomerSegmentation:
         return X_normalized, feature_cols
     
     def build_autoencoder(self, input_dim: int):
-        """
-        Build autoencoder model for feature learning.
-        
-        Args:
-            input_dim: Number of input features
-        """
-        # Encoder
-        encoder_input = layers.Input(shape=(input_dim,))
-        encoded = layers.Dense(64, activation='relu')(encoder_input)
-        encoded = layers.BatchNormalization()(encoded)
-        encoded = layers.Dense(32, activation='relu')(encoded)
-        encoded = layers.BatchNormalization()(encoded)
-        encoded = layers.Dense(self.encoding_dim, activation='relu', name='encoding')(encoded)
-        
-        # Decoder
-        decoded = layers.Dense(32, activation='relu')(encoded)
-        decoded = layers.BatchNormalization()(decoded)
-        decoded = layers.Dense(64, activation='relu')(decoded)
-        decoded = layers.BatchNormalization()(decoded)
-        decoded = layers.Dense(input_dim, activation='linear')(decoded)
-        
-        # Autoencoder model
-        self.autoencoder = keras.Model(encoder_input, decoded)
-        self.autoencoder.compile(optimizer='adam', loss='mse')
-        
-        # Encoder model for extracting features
-        self.encoder = keras.Model(encoder_input, encoded)
+        self.autoencoder = Autoencoder(input_dim, self.encoding_dim).to(self.device)
     
     def fit(self, data: pd.DataFrame, verbose: int = 0) -> 'NeuralCustomerSegmentation':
         """
@@ -114,24 +105,28 @@ class NeuralCustomerSegmentation:
         
         # Build autoencoder
         self.build_autoencoder(X_normalized.shape[1])
-        
-        # Train autoencoder
-        self.autoencoder.fit(
-            X_normalized, X_normalized,
-            epochs=self.epochs,
-            batch_size=self.batch_size,
-            shuffle=True,
-            verbose=verbose,
-            validation_split=0.1
-        )
-        
-        # Extract encoded features
-        encoded_features = self.encoder.predict(X_normalized, verbose=0)
-        
-        # Perform K-means clustering on encoded features
+        X_tensor = torch.tensor(X_normalized, dtype=torch.float32).to(self.device)
+        dataset = TensorDataset(X_tensor)
+        loader = DataLoader(dataset, batch_size=self.batch_size, shuffle=True)
+        optimizer = optim.Adam(self.autoencoder.parameters(), lr=1e-3)
+        criterion = nn.MSELoss()
+        self.autoencoder.train()
+        for epoch in range(self.epochs):
+            epoch_loss = 0.0
+            for (batch,) in loader:
+                optimizer.zero_grad()
+                output = self.autoencoder(batch)
+                loss = criterion(output, batch)
+                loss.backward()
+                optimizer.step()
+                epoch_loss += loss.item() * batch.size(0)
+            if verbose and (epoch % 10 == 0 or epoch == self.epochs - 1):
+                print(f"Epoch {epoch+1}/{self.epochs}, Loss: {epoch_loss / len(dataset):.6f}")
+        self.autoencoder.eval()
+        with torch.no_grad():
+            encoded_features = self.autoencoder.encoder(X_tensor).cpu().numpy()
         self.kmeans = KMeans(n_clusters=self.n_clusters, random_state=self.seed, n_init=10)
         self.kmeans.fit(encoded_features)
-        
         return self
     
     def predict(self, data: pd.DataFrame) -> np.ndarray:
@@ -144,17 +139,14 @@ class NeuralCustomerSegmentation:
         Returns:
             Array of cluster labels
         """
-        if self.encoder is None or self.kmeans is None:
+        if self.autoencoder is None or self.kmeans is None:
             raise ValueError("Model must be fitted before prediction")
-        
         X_normalized, _ = self.prepare_features(data)
-        
-        # Encode features
-        encoded_features = self.encoder.predict(X_normalized, verbose=0)
-        
-        # Predict clusters
+        X_tensor = torch.tensor(X_normalized, dtype=torch.float32).to(self.device)
+        self.autoencoder.eval()
+        with torch.no_grad():
+            encoded_features = self.autoencoder.encoder(X_tensor).cpu().numpy()
         cluster_labels = self.kmeans.predict(encoded_features)
-        
         return cluster_labels
     
     def fit_predict(self, data: pd.DataFrame, verbose: int = 0) -> np.ndarray:
@@ -223,9 +215,11 @@ class NeuralCustomerSegmentation:
         sil_score = silhouette_score(X_normalized, cluster_labels)
         
         # Calculate reconstruction error
-        X_reconstructed = self.autoencoder.predict(X_normalized, verbose=0)
+        X_tensor = torch.tensor(X_normalized, dtype=torch.float32).to(self.device)
+        self.autoencoder.eval()
+        with torch.no_grad():
+            X_reconstructed = self.autoencoder(X_tensor).cpu().numpy()
         reconstruction_error = np.mean(np.square(X_normalized - X_reconstructed))
-        
         return {
             'silhouette_score': sil_score,
             'reconstruction_error': reconstruction_error,
