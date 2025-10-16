@@ -240,3 +240,28 @@ MIT License - Feel free to use and modify for your purposes.
 ## Contact
 
 For questions or feedback, please open an issue on GitHub.
+
+## Project Structure
+
+```
+retail_customer_cat_using_mcp_poc/
+├── README.md                          # Main documentation
+├── QUICKSTART.md                      # Quick start guide
+├── requirements.txt                   # Python dependencies
+├── src/
+│   └── customer_segmentation/
+│       ├── __init__.py               # Package initialization
+│       ├── data_generator.py         # Synthetic data generation
+│       ├── fuzzy_clustering.py       # Fuzzy C-Means implementation
+│       ├── neural_clustering.py      # Neural network clustering
+│       └── cluster_enrichment.py     # Cluster enrichment and export
+├── examples/
+│   ├── run_segmentation_pipeline.py  # Complete pipeline example
+│   └── visualize_segments.py         # Visualization example
+├── tests/
+│   └── test_segmentation.py          # Unit tests
+├── data/                              # Generated data (not in git)
+│   └── README.md                     # Data directory info
+└── visualizations/                    # Generated plots (not in git)
+    └── README.md                     # Visualizations info
+```
