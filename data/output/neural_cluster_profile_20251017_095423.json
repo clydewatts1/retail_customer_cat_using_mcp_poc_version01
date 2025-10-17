@@ -1,0 +1,99 @@
+{
+  "cluster_profiles": {
+    "0": {
+      "segment_name": "Hibernating",
+      "description": "Low-Value Occasionally Engaged Customers (At-Risk): This segment represents 9.8% of the customer base with average revenue of $697.20. They purchase approximately 0.9 times per month with an average order value of $34.33. Last purchase was 253 days ago on average.",
+      "characteristics": {
+        "size": 49,
+        "percentage": 9.8,
+        "avg_total_revenue": 697.2,
+        "avg_total_purchases": 20.18,
+        "avg_order_value": 34.33,
+        "avg_recency_days": 253.18,
+        "avg_frequency": 0.95,
+        "avg_lifetime_months": 21.02,
+        "avg_return_rate": 0.312
+      },
+      "interaction_strategies": [
+        "Provide special discounts and promotions",
+        "Send educational content about product value",
+        "Create entry-level product bundles",
+        "Increase engagement through regular newsletters and updates",
+        "Launch win-back campaign with special offers",
+        "Send re-engagement email sequence",
+        "Conduct customer feedback survey to understand concerns",
+        "Improve product descriptions and sizing guides",
+        "Offer virtual try-on or consultation services",
+        "Review product quality and customer expectations"
+      ],
+      "cluster_id": 0
+    },
+    "1": {
+      "segment_name": "Promising Customers",
+      "description": "Low-Value Regularly Engaged Customers (Moderately Recent): This segment represents 31.2% of the customer base with average revenue of $1,697.60. They purchase approximately 1.8 times per month with an average order value of $70.04. Last purchase was 60 days ago on average.",
+      "characteristics": {
+        "size": 156,
+        "percentage": 31.2,
+        "avg_total_revenue": 1697.6,
+        "avg_total_purchases": 26.04,
+        "avg_order_value": 70.04,
+        "avg_recency_days": 59.54,
+        "avg_frequency": 1.77,
+        "avg_lifetime_months": 15.54,
+        "avg_return_rate": 0.144
+      },
+      "interaction_strategies": [
+        "Provide special discounts and promotions",
+        "Send educational content about product value",
+        "Create entry-level product bundles"
+      ],
+      "cluster_id": 1
+    },
+    "2": {
+      "segment_name": "High-Value At-Risk",
+      "description": "Medium-Value Regularly Engaged Customers (Moderately Recent): This segment represents 40.0% of the customer base with average revenue of $10,037.37. They purchase approximately 2.9 times per month with an average order value of $131.67. Last purchase was 32 days ago on average.",
+      "characteristics": {
+        "size": 200,
+        "percentage": 40.0,
+        "avg_total_revenue": 10037.37,
+        "avg_total_purchases": 75.98,
+        "avg_order_value": 131.67,
+        "avg_recency_days": 31.58,
+        "avg_frequency": 2.9,
+        "avg_lifetime_months": 26.28,
+        "avg_return_rate": 0.084
+      },
+      "interaction_strategies": [
+        "Implement loyalty program with tiered rewards",
+        "Send personalized product recommendations",
+        "Offer bundle deals to increase order value"
+      ],
+      "cluster_id": 2
+    },
+    "3": {
+      "segment_name": "Loyal Regulars",
+      "description": "Medium-Value Highly Engaged Customers (Recent): This segment represents 19.0% of the customer base with average revenue of $5,081.09. They purchase approximately 3.4 times per month with an average order value of $162.12. Last purchase was 27 days ago on average.",
+      "characteristics": {
+        "size": 95,
+        "percentage": 19.0,
+        "avg_total_revenue": 5081.09,
+        "avg_total_purchases": 32.29,
+        "avg_order_value": 162.12,
+        "avg_recency_days": 27.47,
+        "avg_frequency": 3.35,
+        "avg_lifetime_months": 9.87,
+        "avg_return_rate": 0.067
+      },
+      "interaction_strategies": [
+        "Implement loyalty program with tiered rewards",
+        "Send personalized product recommendations",
+        "Offer bundle deals to increase order value"
+      ],
+      "cluster_id": 3
+    }
+  },
+  "metadata": {
+    "n_clusters": 4,
+    "total_customers": 500
+  }
+}

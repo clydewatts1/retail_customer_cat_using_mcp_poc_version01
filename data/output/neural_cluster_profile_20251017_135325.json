@@ -1,0 +1,299 @@
+{
+  "cluster_profiles": {
+    "0": {
+      "segment_name": "Price Sensitive",
+      "description": "Low-Value Regularly Engaged Customers (Moderately Recent): This segment represents 5.0% of the customer base with average revenue of $4,460.56. They purchase approximately 2.0 times per month with an average order value of $107.87. Last purchase was 67 days ago on average.",
+      "characteristics": {
+        "size": 5,
+        "percentage": 5.0,
+        "avg_total_revenue": 4460.56,
+        "avg_total_purchases": 35.6,
+        "avg_order_value": 107.87,
+        "avg_recency_days": 66.6,
+        "avg_frequency": 2.0,
+        "avg_lifetime_months": 16.74,
+        "avg_return_rate": 0.146
+      },
+      "interaction_strategies": [
+        "Provide special discounts and promotions",
+        "Send educational content about product value",
+        "Create entry-level product bundles"
+      ],
+      "cluster_id": 0
+    },
+    "1": {
+      "segment_name": "Price Sensitive",
+      "description": "Low-Value Regularly Engaged Customers (Moderately Recent): This segment represents 23.0% of the customer base with average revenue of $4,422.27. They purchase approximately 2.4 times per month with an average order value of $100.29. Last purchase was 66 days ago on average.",
+      "characteristics": {
+        "size": 23,
+        "percentage": 23.0,
+        "avg_total_revenue": 4422.27,
+        "avg_total_purchases": 42.96,
+        "avg_order_value": 100.29,
+        "avg_recency_days": 66.48,
+        "avg_frequency": 2.35,
+        "avg_lifetime_months": 20.35,
+        "avg_return_rate": 0.143
+      },
+      "interaction_strategies": [
+        "Provide special discounts and promotions",
+        "Send educational content about product value",
+        "Create entry-level product bundles"
+      ],
+      "cluster_id": 1
+    },
+    "2": {
+      "segment_name": "Promising Customers",
+      "description": "Medium-Value Regularly Engaged Customers (Moderately Recent): This segment represents 4.0% of the customer base with average revenue of $6,743.10. They purchase approximately 2.5 times per month with an average order value of $117.17. Last purchase was 56 days ago on average.",
+      "characteristics": {
+        "size": 4,
+        "percentage": 4.0,
+        "avg_total_revenue": 6743.1,
+        "avg_total_purchases": 53.25,
+        "avg_order_value": 117.17,
+        "avg_recency_days": 55.75,
+        "avg_frequency": 2.52,
+        "avg_lifetime_months": 24.32,
+        "avg_return_rate": 0.163
+      },
+      "interaction_strategies": [
+        "Implement loyalty program with tiered rewards",
+        "Send personalized product recommendations",
+        "Offer bundle deals to increase order value",
+        "Improve product descriptions and sizing guides",
+        "Offer virtual try-on or consultation services",
+        "Review product quality and customer expectations"
+      ],
+      "cluster_id": 2
+    },
+    "3": {
+      "segment_name": "High-Value At-Risk",
+      "description": "Medium-Value Highly Engaged Customers (Moderately Recent): This segment represents 2.0% of the customer base with average revenue of $14,515.31. They purchase approximately 3.6 times per month with an average order value of $106.41. Last purchase was 30 days ago on average.",
+      "characteristics": {
+        "size": 2,
+        "percentage": 2.0,
+        "avg_total_revenue": 14515.31,
+        "avg_total_purchases": 102.5,
+        "avg_order_value": 106.41,
+        "avg_recency_days": 30.0,
+        "avg_frequency": 3.61,
+        "avg_lifetime_months": 26.15,
+        "avg_return_rate": 0.075
+      },
+      "interaction_strategies": [
+        "Implement loyalty program with tiered rewards",
+        "Send personalized product recommendations",
+        "Offer bundle deals to increase order value"
+      ],
+      "cluster_id": 3
+    },
+    "4": {
+      "segment_name": "Price Sensitive",
+      "description": "Medium-Value Regularly Engaged Customers (Moderately Recent): This segment represents 11.0% of the customer base with average revenue of $6,393.26. They purchase approximately 2.3 times per month with an average order value of $107.86. Last purchase was 89 days ago on average.",
+      "characteristics": {
+        "size": 11,
+        "percentage": 11.0,
+        "avg_total_revenue": 6393.26,
+        "avg_total_purchases": 50.18,
+        "avg_order_value": 107.86,
+        "avg_recency_days": 88.91,
+        "avg_frequency": 2.3,
+        "avg_lifetime_months": 22.65,
+        "avg_return_rate": 0.173
+      },
+      "interaction_strategies": [
+        "Implement loyalty program with tiered rewards",
+        "Send personalized product recommendations",
+        "Offer bundle deals to increase order value",
+        "Improve product descriptions and sizing guides",
+        "Offer virtual try-on or consultation services",
+        "Review product quality and customer expectations"
+      ],
+      "cluster_id": 4
+    },
+    "5": {
+      "segment_name": "Price Sensitive",
+      "description": "Low-Value Regularly Engaged Customers (Moderately Recent): This segment represents 10.0% of the customer base with average revenue of $2,996.91. They purchase approximately 1.6 times per month with an average order value of $86.64. Last purchase was 80 days ago on average.",
+      "characteristics": {
+        "size": 10,
+        "percentage": 10.0,
+        "avg_total_revenue": 2996.91,
+        "avg_total_purchases": 29.4,
+        "avg_order_value": 86.64,
+        "avg_recency_days": 80.5,
+        "avg_frequency": 1.6,
+        "avg_lifetime_months": 18.61,
+        "avg_return_rate": 0.156
+      },
+      "interaction_strategies": [
+        "Provide special discounts and promotions",
+        "Send educational content about product value",
+        "Create entry-level product bundles",
+        "Improve product descriptions and sizing guides",
+        "Offer virtual try-on or consultation services",
+        "Review product quality and customer expectations"
+      ],
+      "cluster_id": 5
+    },
+    "6": {
+      "segment_name": "Price Sensitive",
+      "description": "Medium-Value Regularly Engaged Customers (Moderately Recent): This segment represents 8.0% of the customer base with average revenue of $6,498.03. They purchase approximately 2.3 times per month with an average order value of $121.18. Last purchase was 40 days ago on average.",
+      "characteristics": {
+        "size": 8,
+        "percentage": 8.0,
+        "avg_total_revenue": 6498.03,
+        "avg_total_purchases": 44.25,
+        "avg_order_value": 121.18,
+        "avg_recency_days": 40.0,
+        "avg_frequency": 2.26,
+        "avg_lifetime_months": 18.41,
+        "avg_return_rate": 0.12
+      },
+      "interaction_strategies": [
+        "Implement loyalty program with tiered rewards",
+        "Send personalized product recommendations",
+        "Offer bundle deals to increase order value"
+      ],
+      "cluster_id": 6
+    },
+    "7": {
+      "segment_name": "Price Sensitive",
+      "description": "Medium-Value Regularly Engaged Customers (Moderately Recent): This segment represents 8.0% of the customer base with average revenue of $6,041.33. They purchase approximately 2.6 times per month with an average order value of $92.60. Last purchase was 77 days ago on average.",
+      "characteristics": {
+        "size": 8,
+        "percentage": 8.0,
+        "avg_total_revenue": 6041.33,
+        "avg_total_purchases": 50.75,
+        "avg_order_value": 92.6,
+        "avg_recency_days": 77.0,
+        "avg_frequency": 2.61,
+        "avg_lifetime_months": 19.08,
+        "avg_return_rate": 0.108
+      },
+      "interaction_strategies": [
+        "Implement loyalty program with tiered rewards",
+        "Send personalized product recommendations",
+        "Offer bundle deals to increase order value"
+      ],
+      "cluster_id": 7
+    },
+    "8": {
+      "segment_name": "Loyal Regulars",
+      "description": "Medium-Value Regularly Engaged Customers (Recent): This segment represents 2.0% of the customer base with average revenue of $13,789.48. They purchase approximately 2.9 times per month with an average order value of $158.92. Last purchase was 25 days ago on average.",
+      "characteristics": {
+        "size": 2,
+        "percentage": 2.0,
+        "avg_total_revenue": 13789.48,
+        "avg_total_purchases": 85.0,
+        "avg_order_value": 158.92,
+        "avg_recency_days": 25.0,
+        "avg_frequency": 2.92,
+        "avg_lifetime_months": 29.1,
+        "avg_return_rate": 0.098
+      },
+      "interaction_strategies": [
+        "Implement loyalty program with tiered rewards",
+        "Send personalized product recommendations",
+        "Offer bundle deals to increase order value"
+      ],
+      "cluster_id": 8
+    },
+    "9": {
+      "segment_name": "Price Sensitive",
+      "description": "Low-Value Regularly Engaged Customers (At-Risk): This segment represents 3.0% of the customer base with average revenue of $4,985.80. They purchase approximately 1.9 times per month with an average order value of $104.00. Last purchase was 94 days ago on average.",
+      "characteristics": {
+        "size": 3,
+        "percentage": 3.0,
+        "avg_total_revenue": 4985.8,
+        "avg_total_purchases": 37.0,
+        "avg_order_value": 104.0,
+        "avg_recency_days": 94.33,
+        "avg_frequency": 1.85,
+        "avg_lifetime_months": 15.73,
+        "avg_return_rate": 0.161
+      },
+      "interaction_strategies": [
+        "Provide special discounts and promotions",
+        "Send educational content about product value",
+        "Create entry-level product bundles",
+        "Launch win-back campaign with special offers",
+        "Send re-engagement email sequence",
+        "Conduct customer feedback survey to understand concerns",
+        "Improve product descriptions and sizing guides",
+        "Offer virtual try-on or consultation services",
+        "Review product quality and customer expectations"
+      ],
+      "cluster_id": 9
+    },
+    "10": {
+      "segment_name": "Price Sensitive",
+      "description": "Low-Value Regularly Engaged Customers (Moderately Recent): This segment represents 7.0% of the customer base with average revenue of $4,394.09. They purchase approximately 2.2 times per month with an average order value of $121.49. Last purchase was 58 days ago on average.",
+      "characteristics": {
+        "size": 7,
+        "percentage": 7.0,
+        "avg_total_revenue": 4394.09,
+        "avg_total_purchases": 38.86,
+        "avg_order_value": 121.49,
+        "avg_recency_days": 58.29,
+        "avg_frequency": 2.23,
+        "avg_lifetime_months": 17.41,
+        "avg_return_rate": 0.133
+      },
+      "interaction_strategies": [
+        "Provide special discounts and promotions",
+        "Send educational content about product value",
+        "Create entry-level product bundles"
+      ],
+      "cluster_id": 10
+    },
+    "11": {
+      "segment_name": "Price Sensitive",
+      "description": "Medium-Value Regularly Engaged Customers (Moderately Recent): This segment represents 7.0% of the customer base with average revenue of $6,180.66. They purchase approximately 2.8 times per month with an average order value of $107.16. Last purchase was 87 days ago on average.",
+      "characteristics": {
+        "size": 7,
+        "percentage": 7.0,
+        "avg_total_revenue": 6180.66,
+        "avg_total_purchases": 48.86,
+        "avg_order_value": 107.16,
+        "avg_recency_days": 86.57,
+        "avg_frequency": 2.76,
+        "avg_lifetime_months": 20.43,
+        "avg_return_rate": 0.123
+      },
+      "interaction_strategies": [
+        "Implement loyalty program with tiered rewards",
+        "Send personalized product recommendations",
+        "Offer bundle deals to increase order value"
+      ],
+      "cluster_id": 11
+    },
+    "12": {
+      "segment_name": "Price Sensitive",
+      "description": "Low-Value Regularly Engaged Customers (At-Risk): This segment represents 10.0% of the customer base with average revenue of $4,842.08. They purchase approximately 2.4 times per month with an average order value of $109.97. Last purchase was 90 days ago on average.",
+      "characteristics": {
+        "size": 10,
+        "percentage": 10.0,
+        "avg_total_revenue": 4842.08,
+        "avg_total_purchases": 41.9,
+        "avg_order_value": 109.97,
+        "avg_recency_days": 90.5,
+        "avg_frequency": 2.38,
+        "avg_lifetime_months": 21.08,
+        "avg_return_rate": 0.141
+      },
+      "interaction_strategies": [
+        "Provide special discounts and promotions",
+        "Send educational content about product value",
+        "Create entry-level product bundles",
+        "Launch win-back campaign with special offers",
+        "Send re-engagement email sequence",
+        "Conduct customer feedback survey to understand concerns"
+      ],
+      "cluster_id": 12
+    }
+  },
+  "metadata": {
+    "n_clusters": 13,
+    "total_customers": 100
+  }
+}

@@ -1,0 +1,384 @@
+metadata:
+  method: Gaussian Mixture Model (GMM)
+  timestamp: '2025-10-17T09:46:31.226838'
+  n_clusters: 4
+  n_samples: 500
+  covariance_type: full
+  max_iterations: 200
+  n_initializations: 10
+  converged: true
+  n_iterations: 10
+metrics:
+  silhouette_score: 0.25450902099874556
+  bic: 3380.7063394071843
+  aic: 2778.017381332811
+  davies_bouldin_index: 1.1966474718017717
+  calinski_harabasz_score: 237.99279874387042
+  log_likelihood: -1246.0086906664055
+uncertainty_metrics:
+  avg_max_probability: 0.9752055951748446
+  std_max_probability: 0.07682614673888495
+  high_confidence_count: 461
+  high_confidence_pct: 92.2
+  low_confidence_count: 11
+  low_confidence_pct: 2.1999999999999997
+  avg_entropy: 0.06268200968826632
+  max_entropy: 0.849657187299839
+features_used:
+- total_purchases
+- total_revenue
+- avg_order_value
+- recency_days
+- frequency_per_month
+- customer_lifetime_months
+- return_rate
+mixture_weights:
+- 0.1381073244915946
+- 0.2455359899512699
+- 0.3665801802368627
+- 0.24977650532027293
+clusters:
+  cluster_0:
+    cluster_id: 0
+    size: 68
+    percentage: 13.600000000000001
+    mixture_weight: 0.1381073244915946
+    probability_stats:
+      mean: 0.9734052979339712
+      std: 0.08285891949446939
+      min: 0.5117579072576611
+      max: 1.0
+      median: 0.9999971609928047
+    feature_statistics:
+      total_purchases:
+        mean: 104.63235294117646
+        median: 105.0
+        std: 30.676893152428484
+        min: 41.0
+        max: 187.0
+        q25: 88.25
+        q75: 120.25
+      total_revenue:
+        mean: 14642.417058823528
+        median: 14772.244999999999
+        std: 5498.591997118834
+        min: 4458.89
+        max: 29784.29
+        q25: 9764.795
+        q75: 18111.4025
+      avg_order_value:
+        mean: 140.70397058823528
+        median: 144.055
+        std: 36.93623517731265
+        min: 75.89
+        max: 217.19
+        q25: 105.3725
+        q75: 166.8075
+      recency_days:
+        mean: 18.279411764705884
+        median: 19.5
+        std: 10.92149132596566
+        min: 2.0
+        max: 56.0
+        q25: 8.0
+        q75: 25.25
+      frequency_per_month:
+        mean: 4.059264705882353
+        median: 3.98
+        std: 0.8846034885020865
+        min: 2.53
+        max: 5.8
+        q25: 3.3674999999999997
+        q75: 4.779999999999999
+      customer_lifetime_months:
+        mean: 26.788235294117648
+        median: 29.200000000000003
+        std: 7.976711053272046
+        min: 8.9
+        max: 35.9
+        q25: 23.4
+        q75: 32.75
+      return_rate:
+        mean: 0.05382352941176471
+        median: 0.04
+        std: 0.040360295687152076
+        min: 0.011
+        max: 0.15
+        q25: 0.022
+        q75: 0.084
+    cluster_center:
+      total_purchases: 104.07281745433036
+      total_revenue: 14566.724222285737
+      avg_order_value: 140.6250135282812
+      recency_days: 18.454797192670704
+      frequency_per_month: 4.033723617652476
+      customer_lifetime_months: 26.83866620015666
+      return_rate: 0.053990318602610485
+    covariance_info:
+      type: full
+      feature_variances:
+        total_purchases: 0.8447881390927846
+        total_revenue: 1.075804997341323
+        avg_order_value: 0.42109587878263627
+        recency_days: 0.022460158259710303
+        frequency_per_month: 0.6298892296209639
+        customer_lifetime_months: 0.6471078772463226
+        return_rate: 0.2300340803479594
+  cluster_1:
+    cluster_id: 1
+    size: 123
+    percentage: 24.6
+    mixture_weight: 0.2455359899512699
+    probability_stats:
+      mean: 0.968606489517886
+      std: 0.09482519890964528
+      min: 0.5240626737564845
+      max: 1.0
+      median: 0.9997601512730528
+    feature_statistics:
+      total_purchases:
+        mean: 20.178861788617887
+        median: 20.0
+        std: 8.157298371804396
+        min: 5.0
+        max: 41.0
+        q25: 14.0
+        q75: 26.0
+      total_revenue:
+        mean: 2619.179105691057
+        median: 2461.1
+        std: 1293.4984523972619
+        min: 424.22
+        max: 6456.91
+        q25: 1667.8049999999998
+        q75: 3382.085
+      avg_order_value:
+        mean: 131.75747967479674
+        median: 122.01
+        std: 45.68015520618849
+        min: 52.04
+        max: 248.34
+        q25: 101.515
+        q75: 156.195
+      recency_days:
+        mean: 33.829268292682926
+        median: 32.0
+        std: 16.07804088315936
+        min: 2.0
+        max: 61.0
+        q25: 19.5
+        q75: 49.0
+      frequency_per_month:
+        mean: 2.663821138211382
+        median: 2.44
+        std: 1.0096781830464625
+        min: 1.12
+        max: 5.7
+        q25: 1.93
+        q75: 3.215
+      customer_lifetime_months:
+        mean: 8.026016260162601
+        median: 7.8
+        std: 3.2884257382217132
+        min: 3.0
+        max: 16.3
+        q25: 5.35
+        q75: 10.3
+      return_rate:
+        mean: 0.09117073170731707
+        median: 0.097
+        std: 0.04211590317540262
+        min: 0.011
+        max: 0.234
+        q25: 0.0555
+        q75: 0.1245
+    cluster_center:
+      total_purchases: 20.329727861303063
+      total_revenue: 2641.170925604349
+      avg_order_value: 131.75932281243902
+      recency_days: 33.56573442854949
+      frequency_per_month: 2.675520729225727
+      customer_lifetime_months: 8.019474106319993
+      return_rate: 0.09024481152735372
+    covariance_info:
+      type: full
+      feature_variances:
+        total_purchases: 0.06513979895404284
+        total_revenue: 0.06450644114080434
+        avg_order_value: 0.6660587368418865
+        recency_days: 0.053069248122660125
+        frequency_per_month: 0.7961666723565893
+        customer_lifetime_months: 0.1106270018660089
+        return_rate: 0.2591603571681797
+  cluster_2:
+    cluster_id: 2
+    size: 184
+    percentage: 36.8
+    mixture_weight: 0.3665801802368627
+    probability_stats:
+      mean: 0.9712515219897383
+      std: 0.07326244508899807
+      min: 0.5387384311494325
+      max: 1.0
+      median: 0.999724775055649
+    feature_statistics:
+      total_purchases:
+        mean: 58.28804347826087
+        median: 57.0
+        std: 16.56214224410436
+        min: 24.0
+        max: 99.0
+        q25: 45.0
+        q75: 71.0
+      total_revenue:
+        mean: 7384.14
+        median: 7115.66
+        std: 2893.7106095370937
+        min: 1354.14
+        max: 15766.78
+        q25: 5057.1775
+        q75: 9450.355
+      avg_order_value:
+        mean: 129.37016304347827
+        median: 122.865
+        std: 45.01007311029428
+        min: 25.55
+        max: 247.79
+        q25: 101.9325
+        q75: 145.245
+      recency_days:
+        mean: 37.41847826086956
+        median: 36.0
+        std: 16.999964187347853
+        min: 1.0
+        max: 114.0
+        q25: 24.75
+        q75: 49.0
+      frequency_per_month:
+        mean: 2.5095108695652173
+        median: 2.465
+        std: 0.6319008360082093
+        min: 1.08
+        max: 4.12
+        q25: 2.0775
+        q75: 2.9625
+      customer_lifetime_months:
+        mean: 23.858695652173914
+        median: 23.75
+        std: 6.194474043201211
+        min: 10.9
+        max: 36.0
+        q25: 19.025000000000002
+        q75: 28.325
+      return_rate:
+        mean: 0.0930163043478261
+        median: 0.0925
+        std: 0.035948730271394086
+        min: 0.011
+        max: 0.199
+        q25: 0.06475
+        q75: 0.122
+    cluster_center:
+      total_purchases: 58.08660311297177
+      total_revenue: 7343.24932807129
+      avg_order_value: 129.1451809400964
+      recency_days: 37.67154855885553
+      frequency_per_month: 2.5012385503463817
+      customer_lifetime_months: 23.830802181529457
+      return_rate: 0.09384807021146288
+    covariance_info:
+      type: full
+      feature_variances:
+        total_purchases: 0.2555637758384754
+        total_revenue: 0.3074117154061707
+        avg_order_value: 0.6545939240686323
+        recency_days: 0.055208402318484395
+        frequency_per_month: 0.31041280072351857
+        customer_lifetime_months: 0.3981900125874611
+        return_rate: 0.18041315430918492
+  cluster_3:
+    cluster_id: 3
+    size: 125
+    percentage: 25.0
+    mixture_weight: 0.24977650532027293
+    probability_stats:
+      mean: 0.9884988725688033
+      std: 0.05367549995162212
+      min: 0.569868916254159
+      max: 1.0
+      median: 0.9999999925445786
+    feature_statistics:
+      total_purchases:
+        mean: 23.952
+        median: 22.0
+        std: 13.890038203342804
+        min: 2.0
+        max: 60.0
+        q25: 14.0
+        q75: 34.0
+      total_revenue:
+        mean: 901.1168
+        median: 774.67
+        std: 560.2030878195696
+        min: 51.81
+        max: 2564.35
+        q25: 545.15
+        q75: 1163.33
+      avg_order_value:
+        mean: 38.12520000000001
+        median: 38.23
+        std: 9.14920661111679
+        min: 20.4
+        max: 58.25
+        q25: 31.1
+        q75: 45.65
+      recency_days:
+        mean: 146.656
+        median: 109.0
+        std: 99.26545577227466
+        min: 31.0
+        max: 363.0
+        q25: 68.0
+        q75: 220.0
+      frequency_per_month:
+        mean: 1.23288
+        median: 1.24
+        std: 0.4025920371630526
+        min: 0.53
+        max: 2.32
+        q25: 0.96
+        q75: 1.45
+      customer_lifetime_months:
+        mean: 19.5888
+        median: 19.4
+        std: 9.938441300519463
+        min: 3.2
+        max: 35.5
+        q25: 11.6
+        q75: 28.9
+      return_rate:
+        mean: 0.23012
+        median: 0.227
+        std: 0.08306289882547035
+        min: 0.101
+        max: 0.394
+        q25: 0.168
+        q75: 0.286
+    cluster_center:
+      total_purchases: 23.916197910829677
+      total_revenue: 905.4735180390362
+      avg_order_value: 38.324405832072145
+      recency_days: 146.69921975583404
+      frequency_per_month: 1.2337113674698443
+      customer_lifetime_months: 19.550334966189027
+      return_rate: 0.23016716422665146
+    covariance_info:
+      type: full
+      feature_variances:
+        total_purchases: 0.17336771715077495
+        total_revenue: 0.01147853246751345
+        avg_order_value: 0.027681173875663916
+        recency_days: 1.9189450491239097
+        frequency_per_month: 0.12708992160023558
+        customer_lifetime_months: 1.0131805959985847
+        return_rate: 0.9895725862591985

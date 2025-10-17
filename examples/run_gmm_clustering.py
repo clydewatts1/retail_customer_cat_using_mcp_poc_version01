@@ -29,18 +29,41 @@ def main():
     # Generate customer data
     print(f"\n📊 Generating customer data...")
     data_gen_config = config.data_generation
-    generator = RetailDataGenerator(seed=data_gen_config['random_seed'])
+    use_personas = data_gen_config.get('use_personas', True)
+    use_enriched_features = config.fuzzy_clustering.get('use_enriched_features', True)
+    
+    # Setup persona configuration if enabled
+    faker_cfg = data_gen_config.get('faker', {})
+    personas_path = data_gen_config.get('personas_config_file', 'config/personas.yml')
+    hierarchy_path = data_gen_config.get('hierarchy_config_file', 'hierarchy_parsed.yml')
+    
+    generator = RetailDataGenerator(
+        seed=data_gen_config['random_seed'],
+        faker_enabled=faker_cfg.get('enabled', True),
+        faker_locale=faker_cfg.get('locale', 'en_US'),
+        use_personas=use_personas,
+        personas_config_path=personas_path,
+        hierarchy_config_path=hierarchy_path
+    )
+    
+    # Generate dataset based on config (use enriched if configured)
+    dataset_type = 'enriched' if use_enriched_features else 'basic'
     data = generator.generate_customer_data(
-        n_customers=data_gen_config['n_customers']
+        n_customers=data_gen_config.get('n_customers', 10000),
+        dataset_type=dataset_type
     )
     print(f"✓ Generated {len(data)} customer records with {len(data.columns)} features")
+    print(f"   Using {dataset_type} dataset for clustering")
+    
+    if use_personas:
+        print(f"   Using persona-based generation")
     
     # Initialize GMM clustering
     print(f"\n🔄 Initializing GMM clustering...")
     gmm_config = config.fuzzy_clustering  # Use same config for n_clusters
     
     gmm_model = GMMCustomerSegmentation(
-        n_clusters=gmm_config['n_clusters'],
+        n_clusters=gmm_config.get('n_clusters', 13),
         covariance_type='full',
         max_iter=200,
         n_init=10,
@@ -51,7 +74,7 @@ def main():
     gmm_model.config = config._config  # Access internal config dict
     
     # Fit and predict
-    print(f"🎯 Fitting GMM with {gmm_config['n_clusters']} components...")
+    print(f"🎯 Fitting GMM with {gmm_config.get('n_clusters', 13)} components...")
     cluster_labels, probabilities = gmm_model.fit_predict(data)
     
     # Add results to dataframe
@@ -185,7 +208,7 @@ def main():
     print(f"\n{'=' * 70}")
     print("SUMMARY")
     print(f"{'=' * 70}")
-    print(f"✓ Successfully clustered {len(data)} customers into {gmm_config['n_clusters']} segments")
+    print(f"✓ Successfully clustered {len(data)} customers into {gmm_config.get('n_clusters', 13)} segments")
     print(f"✓ Silhouette Score: {metrics['silhouette_score']:.4f}")
     print(f"✓ Average Assignment Confidence: {uncertainty['avg_max_probability']:.4f}")
     print(f"✓ GMM provides probabilistic cluster assignments for uncertainty quantification")

@@ -38,10 +38,10 @@ def main():
     # Access data generation parameters
     print("2. Data Generation Parameters:")
     print("-" * 40)
-    print(f"   Number of customers: {config.data_generation['n_customers']}")
+    print(f"   Number of customers: {config.data_generation.get('n_customers', 10000)}")
     print(f"   Random seed: {config.data_generation['random_seed']}")
-    print(f"   Departments: {config.data_generation.get('departments', [])}")
-    print(f"   Classes: {config.data_generation.get('classes', [])}")
+    print(f"   Use personas: {config.data_generation.get('use_personas', True)}")
+    print(f"   Generate dual datasets: {config.data_generation.get('generate_dual_datasets', True)}")
     print(f"   Child ages: {config.data_generation.get('child_ages', [])}")
     print(f"   Adult sizes: {config.data_generation.get('adult_sizes', [])}")
     print()
@@ -60,29 +60,33 @@ def main():
     # Access department definitions
     print("4. Department Definitions:")
     print("-" * 40)
-    departments = config.data_generation.get('departments', [])
-    print(f"   Departments: {departments}")
+    dept_features = config.columns.get('department_features', {})
+    departments = dept_features.get('departments', [])
+    print(f"   Total departments: {len(departments)}")
+    print(f"   First 5 departments: {departments[:5]}")
     print()
     
     # Access clustering parameters
     print("5. Fuzzy Clustering Parameters:")
     print("-" * 40)
     fuzzy_params = config.fuzzy_clustering
-    print(f"   Number of clusters: {fuzzy_params.get('n_clusters', 4)}")
+    print(f"   Number of clusters: {fuzzy_params.get('n_clusters', 13)}")
     print(f"   Fuzziness parameter: {fuzzy_params.get('fuzziness_parameter', 2.0)}")
     print(f"   Max iterations: {fuzzy_params.get('max_iterations', 150)}")
     print(f"   Tolerance: {fuzzy_params.get('tolerance', 1e-5)}")
     print(f"   Random seed: {fuzzy_params.get('random_seed', 42)}")
+    print(f"   Use enriched features: {fuzzy_params.get('use_enriched_features', True)}")
     print()
     
     print("6. Neural Clustering Parameters:")
     print("-" * 40)
     neural_params = config.neural_clustering
-    print(f"   Number of clusters: {neural_params.get('n_clusters', 4)}")
+    print(f"   Number of clusters: {neural_params.get('n_clusters', 13)}")
     print(f"   Encoding dimension: {neural_params.get('encoding_dim', 10)}")
     print(f"   Epochs: {neural_params.get('epochs', 50)}")
     print(f"   Batch size: {neural_params.get('batch_size', 32)}")
     print(f"   Learning rate: {neural_params.get('learning_rate', 0.001)}")
+    print(f"   Use enriched features: {neural_params.get('use_enriched_features', True)}")
     print()
     
     # Access visualization settings
@@ -116,8 +120,8 @@ def main():
     print()
     print("   Instantiating models with config parameters:")
     print(f"   RetailDataGenerator(seed={config.data_generation['random_seed']})")
-    print(f"   FuzzyCustomerSegmentation(n_clusters={fuzzy_params.get('n_clusters', 4)}, m={fuzzy_params.get('fuzziness_parameter', 2.0)})")
-    print(f"   NeuralCustomerSegmentation(n_clusters={neural_params.get('n_clusters', 4)}, encoding_dim={neural_params.get('encoding_dim', 10)})")
+    print(f"   FuzzyCustomerSegmentation(n_clusters={fuzzy_params.get('n_clusters', 13)}, m={fuzzy_params.get('fuzziness_parameter', 2.0)})")
+    print(f"   NeuralCustomerSegmentation(n_clusters={neural_params.get('n_clusters', 13)}, encoding_dim={neural_params.get('encoding_dim', 10)})")
     print()
     
     # Show all available attributes

@@ -33,11 +33,31 @@ def main():
     # Generate customer data
     print(f"\n📊 Generating customer data...")
     data_gen_config = config.data_generation
-    generator = RetailDataGenerator(seed=data_gen_config['random_seed'])
+    use_enriched_features = config.fuzzy_clustering.get('use_enriched_features', True)
+    
+    # Setup persona configuration if enabled
+    use_personas = data_gen_config.get('use_personas', True)
+    faker_cfg = data_gen_config.get('faker', {})
+    personas_path = data_gen_config.get('personas_config_file', 'config/personas.yml')
+    hierarchy_path = data_gen_config.get('hierarchy_config_file', 'hierarchy_parsed.yml')
+    
+    generator = RetailDataGenerator(
+        seed=data_gen_config['random_seed'],
+        faker_enabled=faker_cfg.get('enabled', True),
+        faker_locale=faker_cfg.get('locale', 'en_US'),
+        use_personas=use_personas,
+        personas_config_path=personas_path,
+        hierarchy_config_path=hierarchy_path
+    )
+    
+    # Generate dataset based on config (use enriched if configured)
+    dataset_type = 'enriched' if use_enriched_features else 'basic'
     data = generator.generate_customer_data(
-        n_customers=data_gen_config['n_customers']
+        n_customers=data_gen_config.get('n_customers', 10000),
+        dataset_type=dataset_type
     )
     print(f"✓ Generated {len(data)} customer records with {len(data.columns)} features")
+    print(f"   Using {dataset_type} dataset for clustering")
     
     # ==============================================================================
     # 1. FUZZY C-MEANS CLUSTERING
@@ -48,7 +68,7 @@ def main():
     
     fuzzy_config = config.fuzzy_clustering
     fuzzy_model = FuzzyCustomerSegmentation(
-        n_clusters=fuzzy_config['n_clusters'],
+        n_clusters=fuzzy_config.get('n_clusters', 13),
         m=float(fuzzy_config['fuzziness_parameter']),
         max_iter=fuzzy_config['max_iterations'],
         error=float(fuzzy_config['tolerance']),
@@ -77,7 +97,7 @@ def main():
     
     neural_config = config.neural_clustering
     neural_model = NeuralCustomerSegmentation(
-        n_clusters=neural_config['n_clusters'],
+        n_clusters=neural_config.get('n_clusters', 13),
         encoding_dim=neural_config['encoding_dim'],
         epochs=neural_config['epochs'],
         batch_size=neural_config['batch_size'],
@@ -106,7 +126,7 @@ def main():
     
     gmm_config = config.fuzzy_clustering  # Use same n_clusters
     gmm_model = GMMCustomerSegmentation(
-        n_clusters=gmm_config['n_clusters'],
+        n_clusters=gmm_config.get('n_clusters', 13),
         covariance_type='full',
         max_iter=200,
         n_init=10,

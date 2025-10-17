@@ -25,8 +25,8 @@ paths:
   # Source data files
   source_data:
     product_hierarchy: "data/product_hierarchy.csv"
+    customer_sales_basic: "data/customer_sales_data_basic.csv"
     customer_sales_enriched: "data/customer_sales_data_enriched.csv"
-    customer_sales_legacy: "data/customer_sales_data.csv"
   
   # Output files
   output_files:
@@ -42,68 +42,63 @@ paths:
     membership_heatmap: "visualizations/membership_heatmap.png"
     department_preferences: "visualizations/department_preferences.png"
     size_distribution: "visualizations/size_distribution.png"
+    persona_type_by_cluster: "visualizations/persona_type_by_cluster.png"
 
 # Data Generation Configuration
 data_generation:
-  n_customers: 500
+  n_customers: 10000
   random_seed: 42
+  
+  # Persona-based generation
+  use_personas: true  # Enable persona-based customer generation
+  personas_config_file: "config/personas.yml"  # Path to persona definitions (10 personas)
+  hierarchy_config_file: "hierarchy_parsed.yml"  # Path to full product hierarchy (21 depts, 394 classes)
+  
+  # Dataset output options
+  generate_dual_datasets: true  # Generate both basic and enriched datasets
+  basic_dataset_path: "data/customer_sales_data_basic.csv"
+  enriched_dataset_path: "data/customer_sales_data_enriched.csv"
+  
+  # Dataset Format Information:
+  # BASIC DATASET (51 columns):
+  #   - Core RFM features: total_purchases, total_revenue, avg_order_value, recency_days, etc.
+  #   - 21 dept_total_value columns (one per department)
+  #   - 21 dept_total_units columns (one per department)
+  #   - Size/age counts: count_Baby, count_Child, count_size_XS/S/M/L/XL
+  #   - Used for: Quick analysis, lightweight processing
+  #
+  # ENRICHED DATASET (757 columns):
+  #   - All BASIC columns PLUS:
+  #   - Persona info: persona_type, first_name, last_name, email, phone, address, city, state, zip, country
+  #   - 394 class_total_value columns (one per product class)
+  #   - 394 class_total_units columns (one per product class)
+  #   - Used for: Clustering algorithms, visualization, analysis, reporting (provides richest feature space)
   
   # Faker settings for realistic profile fields
   faker:
     enabled: true      # Toggle to include first_name, last_name, email, phone, address, etc.
     locale: "en_US"   # Locale for Faker profile data (e.g., en_US, en_GB, fr_FR)
   
-  # Customer segment distribution (must sum to 1.0)
-  segment_probabilities:
-    high_value_frequent: 0.20      # Segment 1
-    medium_value_regular: 0.35     # Segment 2
-    low_value_occasional: 0.30     # Segment 3
-    churned_inactive: 0.15         # Segment 4
+  # FULL PRODUCT HIERARCHY - 21 departments, 394 classes
+  # Loaded from hierarchy_parsed.yml - see that file for complete list
+  # Major departments include:
+  # - Accessories (35 classes)
+  # - Health & Beauty (30 classes)
+  # - Home (34 classes)
+  # - Kids Clothing (22 classes)
+  # - Kids Accessories (21 classes)
+  # - Ladies Clothing (43 classes)
+  # - Ladies Footwear (26 classes)
+  # - Ladies Hosiery (21 classes)
+  # - Mens Clothing (34 classes)
+  # - Mens Accessories (27 classes)
+  # - Primarket (15 classes)
+  # - Sports Shop (11 classes)
+  # - Uwear & Nwear (36 classes)
+  # - Xmas Shop (17 classes)
+  # Plus: Bag Levy, Concessions, Dummy, Gift Cards, Goods Not For Resale, In-Store Charity
   
-  # Segment characteristics
-  segments:
-    high_value_frequent:
-      total_purchases: [50, 100]
-      avg_order_value: [150, 300]
-      recency_days: [1, 30]
-      frequency_per_month: [4, 8]
-      return_rate: [0.01, 0.05]
-    
-    medium_value_regular:
-      total_purchases: [15, 50]
-      avg_order_value: [75, 150]
-      recency_days: [15, 60]
-      frequency_per_month: [1.5, 4]
-      return_rate: [0.05, 0.15]
-    
-    low_value_occasional:
-      total_purchases: [3, 15]
-      avg_order_value: [30, 75]
-      recency_days: [30, 120]
-      frequency_per_month: [0.3, 1.5]
-      return_rate: [0.10, 0.25]
-    
-    churned_inactive:
-      total_purchases: [1, 5]
-      avg_order_value: [20, 60]
-      recency_days: [120, 365]
-      frequency_per_month: [0.05, 0.3]
-      return_rate: [0.20, 0.40]
-  
-  # Enriched feature definitions - Product Hierarchy
-  # Note: Classes belong to departments in retail hierarchy
-  departments:
-    "Accessories & Footwear":
-      classes:
-        - "Bags & Wallets"
-        - "Soft & Hard Accessories"
-    "Health & Wellness":
-      classes:
-        - "Consumables"
-        - "Personal Care"
-    "Home & Lifestyle":
-      classes:
-        - "Bedding"
+  #
   
   child_ages:
     - "Baby"
@@ -165,52 +160,134 @@ columns:
     
     true_segment:
       type: "integer"
-      description: "Ground truth segment for validation"
+      description: "Ground truth segment for validation (persona-based)"
       values: [1, 2, 3, 4]
+    
+    persona_type:
+      type: "string"
+      description: "Customer persona type from personas.yml"
+      values: 
+        - "professional_woman"
+        - "professional_man"
+        - "woman_young_family"
+        - "man_young_family"
+        - "young_woman_fashion"
+        - "young_man_fashion"
+        - "teenage_girl"
+        - "teenage_boy"
+        - "mature_shopper"
+        - "budget_shopper"
+    
+    signup_date:
+      type: "date"
+      description: "Customer signup date"
+      format: "YYYY-MM-DD"
+    
+    first_name:
+      type: "string"
+      description: "Customer first name (Faker generated)"
+    
+    last_name:
+      type: "string"
+      description: "Customer last name (Faker generated)"
+    
+    email:
+      type: "string"
+      description: "Customer email address (Faker generated)"
+    
+    phone:
+      type: "string"
+      description: "Customer phone number (Faker generated)"
+    
+    address:
+      type: "string"
+      description: "Customer street address (Faker generated)"
+    
+    city:
+      type: "string"
+      description: "Customer city (Faker generated)"
+    
+    state:
+      type: "string"
+      description: "Customer state (Faker generated)"
+    
+    zip_code:
+      type: "string"
+      description: "Customer zip code (Faker generated)"
+    
+    country:
+      type: "string"
+      description: "Customer country (Faker generated)"
   
-  # Department enriched features
+  # Department enriched features (FULL HIERARCHY - 21 departments)
   department_features:
     pattern: "dept_total_value_{department_name}"
     type: "float"
     description: "Total value of purchases in this department"
     unit: "USD"
     departments:
-      - "Accessories & Footwear"
-      - "Health & Wellness"
-      - "Home & Lifestyle"
+      - "Accessories"
+      - "Bag Levy"
+      - "Concessions"
+      - "Dummy"
+      - "Dummy Dept for TBC order"
+      - "Gift Cards"
+      - "Goods Not For Resale"
+      - "Health & Beauty"
+      - "Home"
+      - "In-Store Charity"
+      - "Kids Accessories"
+      - "Kids Clothing"
+      - "Ladies Clothing"
+      - "Ladies Footwear"
+      - "Ladies Hosiery"
+      - "Mens Accessories"
+      - "Mens Clothing"
+      - "Primarket"
+      - "Sports Shop"
+      - "Uwear & Nwear"
+      - "Xmas Shop"
   
   department_units:
     pattern: "dept_total_units_{department_name}"
     type: "integer"
     description: "Total units purchased in this department"
     departments:
-      - "Accessories & Footwear"
-      - "Health & Wellness"
-      - "Home & Lifestyle"
+      - "Accessories"
+      - "Bag Levy"
+      - "Concessions"
+      - "Dummy"
+      - "Dummy Dept for TBC order"
+      - "Gift Cards"
+      - "Goods Not For Resale"
+      - "Health & Beauty"
+      - "Home"
+      - "In-Store Charity"
+      - "Kids Accessories"
+      - "Kids Clothing"
+      - "Ladies Clothing"
+      - "Ladies Footwear"
+      - "Ladies Hosiery"
+      - "Mens Accessories"
+      - "Mens Clothing"
+      - "Primarket"
+      - "Sports Shop"
+      - "Uwear & Nwear"
+      - "Xmas Shop"
   
-  # Class enriched features
+  # Class enriched features (394 classes - see hierarchy_parsed.yml for complete list)
   class_features:
     pattern: "class_total_value_{class_name}"
     type: "float"
-    description: "Total value of purchases in this class"
+    description: "Total value of purchases in this class (394 total classes)"
     unit: "USD"
-    classes:
-      - "Bags & Wallets"
-      - "Soft & Hard Accessories"
-      - "Consumables"
-      - "Personal Care"
-      - "Bedding"
+    note: "All 394 classes from hierarchy_parsed.yml are included in enriched dataset"
   
   class_units:
     pattern: "class_total_units_{class_name}"
     type: "integer"
-    description: "Total units purchased in this class"
-    classes:
-      - "Bags & Wallets"
-      - "Soft & Hard Accessories"
-      - "Consumables"
-      - "Personal Care"
-      - "Bedding"
+    description: "Total units purchased in this class (394 total classes)"
+    note: "All 394 classes from hierarchy_parsed.yml are included in enriched dataset"
   
   # Size/Age breakdown features
   child_age_features:
@@ -280,13 +357,13 @@ product_hierarchy:
 
 # Fuzzy Clustering Configuration
 fuzzy_clustering:
-  n_clusters: 4
+  n_clusters: 13
   fuzziness_parameter: 2.0  # m parameter for FCM
   max_iterations: 150
   tolerance: 1e-5
   random_seed: 42
   
-  # Feature selection for clustering
+  # Feature selection for clustering (uses ENRICHED dataset - 757 columns)
   features_to_use:
     - "total_purchases"
     - "total_revenue"
@@ -296,31 +373,9 @@ fuzzy_clustering:
     - "customer_lifetime_months"
     - "return_rate"
   
-  # Optional: Include enriched department/class features
+  # Note: Clustering uses enriched dataset (757 cols) with all department and class features
+  # This provides richer feature space including all 21 departments and 394 product classes
   use_enriched_features: true
-  enriched_features_to_use:
-    # Department value features
-    - "dept_total_value_Accessories & Footwear"
-    - "dept_total_value_Health & Wellness"
-    - "dept_total_value_Home & Lifestyle"
-    # Department unit features
-    - "dept_total_units_Accessories & Footwear"
-    - "dept_total_units_Health & Wellness"
-    - "dept_total_units_Home & Lifestyle"
-    # Class value features
-    - "class_total_value_Bags & Wallets"
-    - "class_total_value_Soft & Hard Accessories"
-    - "class_total_value_Consumables"
-    - "class_total_value_Personal Care"
-    - "class_total_value_Bedding"
-    # Size/age features
-    - "count_Baby"
-    - "count_Child"
-    - "count_size_XS"
-    - "count_size_S"
-    - "count_size_M"
-    - "count_size_L"
-    - "count_size_XL"
   
   # Output column names (generated after clustering)
   output_columns:
@@ -330,7 +385,7 @@ fuzzy_clustering:
 
 # Neural Clustering Configuration
 neural_clustering:
-  n_clusters: 4
+  n_clusters: 13
   encoding_dim: 10
   hidden_layers: [64, 32, 16]
   epochs: 50
@@ -339,7 +394,7 @@ neural_clustering:
   random_seed: 42
   verbose: 0
   
-  # Feature selection for clustering
+  # Feature selection for clustering (uses ENRICHED dataset - 757 columns)
   features_to_use:
     - "total_purchases"
     - "total_revenue"
@@ -349,31 +404,9 @@ neural_clustering:
     - "customer_lifetime_months"
     - "return_rate"
   
-  # Optional: Include enriched department/class features
-  use_enriched_features: false
-  enriched_features_to_use:
-    # Department value features
-    - "dept_total_value_Accessories & Footwear"
-    - "dept_total_value_Health & Wellness"
-    - "dept_total_value_Home & Lifestyle"
-    # Department unit features
-    - "dept_total_units_Accessories & Footwear"
-    - "dept_total_units_Health & Wellness"
-    - "dept_total_units_Home & Lifestyle"
-    # Class value features
-    - "class_total_value_Bags & Wallets"
-    - "class_total_value_Soft & Hard Accessories"
-    - "class_total_value_Consumables"
-    - "class_total_value_Personal Care"
-    - "class_total_value_Bedding"
-    # Size/age features
-    - "count_Baby"
-    - "count_Child"
-    - "count_size_XS"
-    - "count_size_S"
-    - "count_size_M"
-    - "count_size_L"
-    - "count_size_XL"
+  # Note: Clustering uses enriched dataset (757 cols) with all department and class features
+  # This provides richer feature space including all 21 departments and 394 product classes
+  use_enriched_features: true
   
   # Output column names (generated after clustering)
   output_columns:
