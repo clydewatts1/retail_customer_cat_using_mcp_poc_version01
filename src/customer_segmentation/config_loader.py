@@ -19,7 +19,9 @@ class Config:
         """
         if config_path is None:
             # Default to config/config.yml relative to project root
-            project_root = Path(__file__).parent.parent
+            # __file__ is in src/customer_segmentation/config_loader.py
+            # So parent.parent.parent gets us to project root
+            project_root = Path(__file__).parent.parent.parent
             config_path = project_root / "config" / "config.yml"
         
         self.config_path = Path(config_path)

@@ -1,0 +1,1254 @@
+{
+  "metadata": {
+    "method": "Gaussian Mixture Model (GMM)",
+    "timestamp": "2025-10-17T05:41:33.773733",
+    "n_clusters": 4,
+    "n_samples": 500,
+    "covariance_type": "full",
+    "max_iterations": 200,
+    "n_initializations": 10,
+    "converged": true,
+    "n_iterations": 15
+  },
+  "metrics": {
+    "silhouette_score": 0.32518771857011586,
+    "bic": -13133.223299741258,
+    "aic": -19046.31846182759,
+    "davies_bouldin_index": 1.000391575191805,
+    "calinski_harabasz_score": 577.0450746231874,
+    "log_likelihood": 10926.159230913796
+  },
+  "uncertainty_metrics": {
+    "avg_max_probability": 0.9998872033362332,
+    "std_max_probability": 0.0013703219477797096,
+    "high_confidence_count": 500,
+    "high_confidence_pct": 100.0,
+    "low_confidence_count": 0,
+    "low_confidence_pct": 0.0,
+    "avg_entropy": 0.0005933149990005245,
+    "max_entropy": 0.10477766933648862
+  },
+  "features_used": [
+    "total_purchases",
+    "total_revenue",
+    "avg_order_value",
+    "recency_days",
+    "frequency_per_month",
+    "customer_lifetime_months",
+    "return_rate",
+    "dept_total_value_Accessories & Footwear",
+    "dept_total_value_Health & Wellness",
+    "dept_total_value_Home & Lifestyle",
+    "dept_total_units_Accessories & Footwear",
+    "dept_total_units_Health & Wellness",
+    "dept_total_units_Home & Lifestyle",
+    "class_total_value_Bags & Wallets",
+    "class_total_value_Soft & Hard Accessories",
+    "class_total_value_Consumables",
+    "class_total_value_Personal Care",
+    "class_total_value_Bedding",
+    "count_Baby",
+    "count_Child",
+    "count_size_XS",
+    "count_size_S",
+    "count_size_M",
+    "count_size_L",
+    "count_size_XL"
+  ],
+  "mixture_weights": [
+    0.16201107368218653,
+    0.22800000000016754,
+    0.2998949234891393,
+    0.3100940028285065
+  ],
+  "clusters": {
+    "cluster_0": {
+      "cluster_id": 0,
+      "size": 81,
+      "percentage": 16.2,
+      "mixture_weight": 0.16201107368218653,
+      "probability_stats": {
+        "mean": 0.9999816376346421,
+        "std": 0.00013786511303883422,
+        "min": 0.9987592561654842,
+        "max": 1.0,
+        "median": 1.0
+      },
+      "feature_statistics": {
+        "total_purchases": {
+          "mean": 2.753086419753086,
+          "median": 3.0,
+          "std": 1.145980630263126,
+          "min": 1.0,
+          "max": 5.0,
+          "q25": 2.0,
+          "q75": 4.0
+        },
+        "total_revenue": {
+          "mean": 108.05716049382717,
+          "median": 103.55,
+          "std": 51.211363466387226,
+          "min": 28.93,
+          "max": 256.83,
+          "q25": 71.26,
+          "q75": 130.7
+        },
+        "avg_order_value": {
+          "mean": 39.434197530864196,
+          "median": 38.66,
+          "std": 10.929673813087645,
+          "min": 20.12,
+          "max": 57.58,
+          "q25": 29.46,
+          "q75": 49.57
+        },
+        "recency_days": {
+          "mean": 253.50617283950618,
+          "median": 263.0,
+          "std": 70.67851927155628,
+          "min": 124.0,
+          "max": 362.0,
+          "q25": 193.0,
+          "q75": 314.0
+        },
+        "frequency_per_month": {
+          "mean": 0.16049382716049382,
+          "median": 0.16,
+          "std": 0.06853650914964778,
+          "min": 0.06,
+          "max": 0.3,
+          "q25": 0.1,
+          "q75": 0.21
+        },
+        "customer_lifetime_months": {
+          "mean": 19.41358024691358,
+          "median": 19.8,
+          "std": 9.539493606665133,
+          "min": 3.4,
+          "max": 35.5,
+          "q25": 11.6,
+          "q75": 27.3
+        },
+        "return_rate": {
+          "mean": 0.2995061728395062,
+          "median": 0.304,
+          "std": 0.05379919224690788,
+          "min": 0.203,
+          "max": 0.395,
+          "q25": 0.253,
+          "q75": 0.348
+        },
+        "dept_total_value_Accessories & Footwear": {
+          "mean": 23.32050625347767,
+          "median": 15.334418638983351,
+          "std": 27.252867341791568,
+          "min": 0.0,
+          "max": 131.9534367942155,
+          "q25": 0.0,
+          "q75": 36.63258628622996
+        },
+        "dept_total_value_Health & Wellness": {
+          "mean": 22.352127066396434,
+          "median": 15.918805535609135,
+          "std": 26.963134560195936,
+          "min": 0.0,
+          "max": 169.21488866136824,
+          "q25": 0.0,
+          "q75": 34.167829947357966
+        },
+        "dept_total_value_Home & Lifestyle": {
+          "mean": 20.860653176803552,
+          "median": 16.226749592513816,
+          "std": 22.701651234762593,
+          "min": 0.0,
+          "max": 91.91752925187258,
+          "q25": 0.0,
+          "q75": 35.40226466260499
+        },
+        "dept_total_units_Accessories & Footwear": {
+          "mean": 1.0246913580246915,
+          "median": 1.0,
+          "std": 1.060369141407548,
+          "min": 0.0,
+          "max": 4.0,
+          "q25": 0.0,
+          "q75": 2.0
+        },
+        "dept_total_units_Health & Wellness": {
+          "mean": 0.9012345679012346,
+          "median": 1.0,
+          "std": 0.8888888888888894,
+          "min": 0.0,
+          "max": 4.0,
+          "q25": 0.0,
+          "q75": 1.0
+        },
+        "dept_total_units_Home & Lifestyle": {
+          "mean": 0.8271604938271605,
+          "median": 1.0,
+          "std": 0.8335184979469576,
+          "min": 0.0,
+          "max": 3.0,
+          "q25": 0.0,
+          "q75": 1.0
+        },
+        "class_total_value_Bags & Wallets": {
+          "mean": 11.06877486312681,
+          "median": 0.0,
+          "std": 17.181672752994302,
+          "min": 0.0,
+          "max": 78.19173532900619,
+          "q25": 0.0,
+          "q75": 19.710312823062317
+        },
+        "class_total_value_Soft & Hard Accessories": {
+          "mean": 15.510624586302372,
+          "median": 0.0,
+          "std": 19.610975365338124,
+          "min": 0.0,
+          "max": 82.73212286559215,
+          "q25": 0.0,
+          "q75": 27.715447211759415
+        },
+        "class_total_value_Consumables": {
+          "mean": 12.786469240734286,
+          "median": 0.0,
+          "std": 18.64781130674458,
+          "min": 0.0,
+          "max": 71.70952573895235,
+          "q25": 0.0,
+          "q75": 24.876708658843675
+        },
+        "class_total_value_Personal Care": {
+          "mean": 13.904959612514737,
+          "median": 0.0,
+          "std": 20.816143538566603,
+          "min": 0.0,
+          "max": 91.35195710787237,
+          "q25": 0.0,
+          "q75": 27.789609335879803
+        },
+        "class_total_value_Bedding": {
+          "mean": 13.262458193999448,
+          "median": 0.0,
+          "std": 19.593960764962205,
+          "min": 0.0,
+          "max": 115.61461324835486,
+          "q25": 0.0,
+          "q75": 24.24358564600736
+        },
+        "count_Baby": {
+          "mean": 0.2222222222222222,
+          "median": 0.0,
+          "std": 0.4472135954999581,
+          "min": 0.0,
+          "max": 2.0,
+          "q25": 0.0,
+          "q75": 0.0
+        },
+        "count_Child": {
+          "mean": 0.2839506172839506,
+          "median": 0.0,
+          "std": 0.4804832957875478,
+          "min": 0.0,
+          "max": 2.0,
+          "q25": 0.0,
+          "q75": 1.0
+        },
+        "count_size_XS": {
+          "mean": 0.43209876543209874,
+          "median": 0.0,
+          "std": 0.5903022870728666,
+          "min": 0.0,
+          "max": 2.0,
+          "q25": 0.0,
+          "q75": 1.0
+        },
+        "count_size_S": {
+          "mean": 0.4444444444444444,
+          "median": 0.0,
+          "std": 0.6324555320336762,
+          "min": 0.0,
+          "max": 3.0,
+          "q25": 0.0,
+          "q75": 1.0
+        },
+        "count_size_M": {
+          "mean": 0.4567901234567901,
+          "median": 0.0,
+          "std": 0.6528664242410039,
+          "min": 0.0,
+          "max": 2.0,
+          "q25": 0.0,
+          "q75": 1.0
+        },
+        "count_size_L": {
+          "mean": 0.41975308641975306,
+          "median": 0.0,
+          "std": 0.6297657804863686,
+          "min": 0.0,
+          "max": 3.0,
+          "q25": 0.0,
+          "q75": 1.0
+        },
+        "count_size_XL": {
+          "mean": 0.49382716049382713,
+          "median": 0.0,
+          "std": 0.6542831342416573,
+          "min": 0.0,
+          "max": 2.0,
+          "q25": 0.0,
+          "q75": 1.0
+        }
+      },
+      "cluster_center": {
+        "total_purchases": 2.7530775269949572,
+        "total_revenue": 108.05956611238435,
+        "avg_order_value": 39.435472533576274,
+        "recency_days": 253.49722777658306,
+        "frequency_per_month": 0.16050660590353782,
+        "customer_lifetime_months": 19.414156208917245,
+        "return_rate": 0.29950218317073624,
+        "dept_total_value_Accessories & Footwear": 23.325517017770267,
+        "dept_total_value_Health & Wellness": 22.35171104313679,
+        "dept_total_value_Home & Lifestyle": 20.858650648985304,
+        "dept_total_units_Accessories & Footwear": 1.0247405968732206,
+        "dept_total_units_Health & Wellness": 0.9012484253048161,
+        "dept_total_units_Home & Lifestyle": 0.8270885048169188,
+        "class_total_value_Bags & Wallets": 11.068835150051882,
+        "class_total_value_Soft & Hard Accessories": 15.509255027562403,
+        "class_total_value_Consumables": 12.785090365195288,
+        "class_total_value_Personal Care": 13.907426970808956,
+        "class_total_value_Bedding": 13.265271196274057,
+        "count_Baby": 0.22221982414614772,
+        "count_Child": 0.2839317865066038,
+        "count_size_XS": 0.4321281121725855,
+        "count_size_S": 0.4444621156571822,
+        "count_size_M": 0.45682032537295214,
+        "count_size_L": 0.4197228338744621,
+        "count_size_XL": 0.49379252926502115
+      },
+      "covariance_info": {
+        "type": "full",
+        "feature_variances": {
+          "total_purchases": 0.0017128352881493546,
+          "total_revenue": 5.767125209310111e-05,
+          "avg_order_value": 0.02148723823422379,
+          "recency_days": 0.6582475137618014,
+          "frequency_per_month": 0.0009345789091826248,
+          "customer_lifetime_months": 1.057419894630156,
+          "return_rate": 0.3205756785287781,
+          "dept_total_value_Accessories & Footwear": 0.0004959654680988974,
+          "dept_total_value_Health & Wellness": 0.0005010348581208578,
+          "dept_total_value_Home & Lifestyle": 0.00036633031344039945,
+          "dept_total_units_Accessories & Footwear": 0.012228879522341413,
+          "dept_total_units_Health & Wellness": 0.008661391200622395,
+          "dept_total_units_Home & Lifestyle": 0.00768500667707466,
+          "class_total_value_Bags & Wallets": 0.0004955271503079657,
+          "class_total_value_Soft & Hard Accessories": 0.0007086281785320833,
+          "class_total_value_Consumables": 0.0006085748916416268,
+          "class_total_value_Personal Care": 0.0008370075190520833,
+          "class_total_value_Bedding": 0.0007062726165224657,
+          "count_Baby": 0.019740819695027435,
+          "count_Child": 0.021290107496555542,
+          "count_size_XS": 0.014045136591867851,
+          "count_size_S": 0.016959734974477,
+          "count_size_M": 0.01915865249123785,
+          "count_size_L": 0.016401551229325025,
+          "count_size_XL": 0.018421439051170645
+        }
+      }
+    },
+    "cluster_1": {
+      "cluster_id": 1,
+      "size": 114,
+      "percentage": 22.8,
+      "mixture_weight": 0.22800000000016754,
+      "probability_stats": {
+        "mean": 0.9999999999999958,
+        "std": 3.731118677475131e-14,
+        "min": 0.999999999999611,
+        "max": 1.0,
+        "median": 1.0
+      },
+      "feature_statistics": {
+        "total_purchases": {
+          "mean": 73.20175438596492,
+          "median": 73.0,
+          "std": 13.443542927830233,
+          "min": 50.0,
+          "max": 99.0,
+          "q25": 61.25,
+          "q75": 83.75
+        },
+        "total_revenue": {
+          "mean": 16515.33421052632,
+          "median": 16324.48,
+          "std": 4368.62963629053,
+          "min": 8985.03,
+          "max": 27977.85,
+          "q25": 13434.205,
+          "q75": 18558.165
+        },
+        "avg_order_value": {
+          "mean": 225.78833333333333,
+          "median": 221.205,
+          "std": 43.25384885256423,
+          "min": 153.91,
+          "max": 298.77,
+          "q25": 189.64000000000001,
+          "q75": 264.2075
+        },
+        "recency_days": {
+          "mean": 14.649122807017545,
+          "median": 13.5,
+          "std": 8.423505309643907,
+          "min": 1.0,
+          "max": 29.0,
+          "q25": 7.25,
+          "q75": 23.0
+        },
+        "frequency_per_month": {
+          "mean": 5.9885087719298244,
+          "median": 5.97,
+          "std": 1.15539154184485,
+          "min": 4.16,
+          "max": 7.99,
+          "q25": 4.9575000000000005,
+          "q75": 6.9475
+        },
+        "customer_lifetime_months": {
+          "mean": 19.8078947368421,
+          "median": 19.25,
+          "std": 9.6440925541163,
+          "min": 3.1,
+          "max": 35.9,
+          "q25": 11.625,
+          "q75": 26.85
+        },
+        "return_rate": {
+          "mean": 0.031447368421052634,
+          "median": 0.0325,
+          "std": 0.01227926672255293,
+          "min": 0.011,
+          "max": 0.05,
+          "q25": 0.02,
+          "q75": 0.042
+        },
+        "dept_total_value_Accessories & Footwear": {
+          "mean": 2936.490319764787,
+          "median": 2834.2621230297545,
+          "std": 875.7233069271786,
+          "min": 1002.4916076559766,
+          "max": 5020.760901603173,
+          "q25": 2355.2570127977665,
+          "q75": 3533.448747732974
+        },
+        "dept_total_value_Health & Wellness": {
+          "mean": 2852.385536355024,
+          "median": 2757.4165456084747,
+          "std": 939.0209485015855,
+          "min": 1312.0041381188023,
+          "max": 6672.695495057147,
+          "q25": 2199.331806792724,
+          "q75": 3246.172944107806
+        },
+        "dept_total_value_Home & Lifestyle": {
+          "mean": 2794.5799413004497,
+          "median": 2713.629960132951,
+          "std": 954.1378431164834,
+          "min": 974.4296005366,
+          "max": 5722.288547287665,
+          "q25": 2133.1307069749,
+          "q75": 3252.1221437772806
+        },
+        "dept_total_units_Accessories & Footwear": {
+          "mean": 24.771929824561404,
+          "median": 25.0,
+          "std": 5.400811292250531,
+          "min": 14.0,
+          "max": 41.0,
+          "q25": 21.0,
+          "q75": 28.0
+        },
+        "dept_total_units_Health & Wellness": {
+          "mean": 24.43859649122807,
+          "median": 24.0,
+          "std": 5.410633724876075,
+          "min": 11.0,
+          "max": 38.0,
+          "q25": 20.0,
+          "q75": 28.0
+        },
+        "dept_total_units_Home & Lifestyle": {
+          "mean": 23.99122807017544,
+          "median": 24.0,
+          "std": 6.182326528933547,
+          "min": 10.0,
+          "max": 40.0,
+          "q25": 19.0,
+          "q75": 28.0
+        },
+        "class_total_value_Bags & Wallets": {
+          "mean": 1746.7499143813975,
+          "median": 1629.6814392487695,
+          "std": 727.9369132191487,
+          "min": 389.72756408180425,
+          "max": 4095.5419540687208,
+          "q25": 1262.527815103209,
+          "q75": 2096.87666781604
+        },
+        "class_total_value_Soft & Hard Accessories": {
+          "mean": 1713.531705770641,
+          "median": 1636.5827321046074,
+          "std": 616.0387762143134,
+          "min": 464.00987775843845,
+          "max": 3365.3347731203576,
+          "q25": 1324.1311152964545,
+          "q75": 2111.099312606597
+        },
+        "class_total_value_Consumables": {
+          "mean": 1759.3428628194692,
+          "median": 1751.8026876702934,
+          "std": 643.6751174404701,
+          "min": 588.8759421632813,
+          "max": 3119.864501738972,
+          "q25": 1205.2408469434538,
+          "q75": 2232.552917228457
+        },
+        "class_total_value_Personal Care": {
+          "mean": 1652.525342041288,
+          "median": 1599.12354975564,
+          "std": 648.6443769359146,
+          "min": 457.5178051201192,
+          "max": 4314.794229174833,
+          "q25": 1203.6995851871657,
+          "q75": 1970.5013030711773
+        },
+        "class_total_value_Bedding": {
+          "mean": 1711.3059724074637,
+          "median": 1604.5473573994916,
+          "std": 623.8553295673083,
+          "min": 490.60026752014534,
+          "max": 3538.0428309431063,
+          "q25": 1259.5868053753893,
+          "q75": 2186.9693801633657
+        },
+        "count_Baby": {
+          "mean": 7.307017543859649,
+          "median": 7.0,
+          "std": 2.687655138086434,
+          "min": 2.0,
+          "max": 14.0,
+          "q25": 5.0,
+          "q75": 9.0
+        },
+        "count_Child": {
+          "mean": 7.692982456140351,
+          "median": 7.0,
+          "std": 2.835074854976109,
+          "min": 0.0,
+          "max": 16.0,
+          "q25": 5.25,
+          "q75": 9.75
+        },
+        "count_size_XS": {
+          "mean": 11.947368421052632,
+          "median": 12.0,
+          "std": 3.823175961087381,
+          "min": 4.0,
+          "max": 26.0,
+          "q25": 9.0,
+          "q75": 14.0
+        },
+        "count_size_S": {
+          "mean": 11.614035087719298,
+          "median": 11.0,
+          "std": 3.6591714617340063,
+          "min": 5.0,
+          "max": 21.0,
+          "q25": 9.0,
+          "q75": 14.0
+        },
+        "count_size_M": {
+          "mean": 11.25438596491228,
+          "median": 11.0,
+          "std": 3.9281408232889103,
+          "min": 3.0,
+          "max": 21.0,
+          "q25": 9.0,
+          "q75": 14.0
+        },
+        "count_size_L": {
+          "mean": 11.947368421052632,
+          "median": 12.0,
+          "std": 3.532008141140452,
+          "min": 4.0,
+          "max": 20.0,
+          "q25": 9.0,
+          "q75": 14.0
+        },
+        "count_size_XL": {
+          "mean": 11.43859649122807,
+          "median": 11.5,
+          "std": 3.878771559294401,
+          "min": 4.0,
+          "max": 23.0,
+          "q25": 9.0,
+          "q75": 14.0
+        }
+      },
+      "cluster_center": {
+        "total_purchases": 73.20175438594195,
+        "total_revenue": 16515.33421051831,
+        "avg_order_value": 225.78833333326685,
+        "recency_days": 14.649122807025165,
+        "frequency_per_month": 5.9885087719273065,
+        "customer_lifetime_months": 19.80789473683253,
+        "return_rate": 0.031447368421071584,
+        "dept_total_value_Accessories & Footwear": 2936.490319763556,
+        "dept_total_value_Health & Wellness": 2852.3855363540256,
+        "dept_total_value_Home & Lifestyle": 2794.5799412988868,
+        "dept_total_units_Accessories & Footwear": 24.771929824556356,
+        "dept_total_units_Health & Wellness": 24.438596491221894,
+        "dept_total_units_Home & Lifestyle": 23.991228070163704,
+        "class_total_value_Bags & Wallets": 1746.7499143806558,
+        "class_total_value_Soft & Hard Accessories": 1713.5317057698048,
+        "class_total_value_Consumables": 1759.3428628184759,
+        "class_total_value_Personal Care": 1652.5253420406407,
+        "class_total_value_Bedding": 1711.3059724068908,
+        "count_Baby": 7.307017543855787,
+        "count_Child": 7.6929824561383775,
+        "count_size_XS": 11.947368421048974,
+        "count_size_S": 11.614035087716616,
+        "count_size_M": 11.254385964911322,
+        "count_size_L": 11.947368421048267,
+        "count_size_XL": 11.4385964912226
+      },
+      "covariance_info": {
+        "type": "full",
+        "feature_variances": {
+          "total_purchases": 0.23646055856512815,
+          "total_revenue": 0.4139207299590886,
+          "avg_order_value": 0.3376864062172168,
+          "recency_days": 0.00938299741727347,
+          "frequency_per_month": 0.2662200460923014,
+          "customer_lifetime_months": 1.0846678026088559,
+          "return_rate": 0.01676153174477043,
+          "dept_total_value_Accessories & Footwear": 0.5127139245631449,
+          "dept_total_value_Health & Wellness": 0.6086938017623735,
+          "dept_total_value_Home & Lifestyle": 0.647684988175991,
+          "dept_total_units_Accessories & Footwear": 0.31838385853697665,
+          "dept_total_units_Health & Wellness": 0.3220580490629277,
+          "dept_total_units_Home & Lifestyle": 0.4242516629587105,
+          "class_total_value_Bags & Wallets": 0.8909465994516098,
+          "class_total_value_Soft & Hard Accessories": 0.7008086125784485,
+          "class_total_value_Consumables": 0.7265532959730481,
+          "class_total_value_Personal Care": 0.814582534692236,
+          "class_total_value_Bedding": 0.71745631300946,
+          "count_Baby": 0.7154973171265461,
+          "count_Child": 0.7439055870207721,
+          "count_size_XS": 0.591280619041557,
+          "count_size_S": 0.5697850071184366,
+          "count_size_M": 0.6960643508847694,
+          "count_size_L": 0.5177614886742622,
+          "count_size_XL": 0.649738797227021
+        }
+      }
+    },
+    "cluster_2": {
+      "cluster_id": 2,
+      "size": 150,
+      "percentage": 30.0,
+      "mixture_weight": 0.2998949234891393,
+      "probability_stats": {
+        "mean": 0.9996339293176932,
+        "std": 0.0024813768233495938,
+        "min": 0.9782489867805702,
+        "max": 1.0,
+        "median": 1.0
+      },
+      "feature_statistics": {
+        "total_purchases": {
+          "mean": 8.886666666666667,
+          "median": 9.0,
+          "std": 3.534179544947938,
+          "min": 3.0,
+          "max": 17.0,
+          "q25": 6.0,
+          "q75": 12.0
+        },
+        "total_revenue": {
+          "mean": 473.6686666666666,
+          "median": 427.04999999999995,
+          "std": 246.65890448274195,
+          "min": 102.73,
+          "max": 1452.08,
+          "q25": 313.1775,
+          "q75": 613.2925
+        },
+        "avg_order_value": {
+          "mean": 52.75746666666667,
+          "median": 54.11,
+          "std": 14.018249236618505,
+          "min": 30.08,
+          "max": 85.84,
+          "q25": 40.0925,
+          "q75": 64.44999999999999
+        },
+        "recency_days": {
+          "mean": 77.08666666666667,
+          "median": 77.5,
+          "std": 26.602199199260507,
+          "min": 17.0,
+          "max": 146.0,
+          "q25": 55.25,
+          "q75": 95.75
+        },
+        "frequency_per_month": {
+          "mean": 0.9037999999999999,
+          "median": 0.865,
+          "std": 0.43641257186967713,
+          "min": 0.24,
+          "max": 3.56,
+          "q25": 0.57,
+          "q75": 1.16
+        },
+        "customer_lifetime_months": {
+          "mean": 20.40533333333333,
+          "median": 21.05,
+          "std": 9.055472494735337,
+          "min": 3.4,
+          "max": 36.0,
+          "q25": 12.3,
+          "q75": 27.475
+        },
+        "return_rate": {
+          "mean": 0.17341333333333334,
+          "median": 0.177,
+          "std": 0.04306483120599562,
+          "min": 0.062,
+          "max": 0.247,
+          "q25": 0.137,
+          "q75": 0.20675
+        },
+        "dept_total_value_Accessories & Footwear": {
+          "mean": 97.21412546331017,
+          "median": 90.41187065900775,
+          "std": 66.25478971984856,
+          "min": 0.0,
+          "max": 320.21509916987213,
+          "q25": 48.20871101603231,
+          "q75": 136.85636026502976
+        },
+        "dept_total_value_Health & Wellness": {
+          "mean": 101.0521009838701,
+          "median": 89.18127060334213,
+          "std": 75.14259279960338,
+          "min": 0.0,
+          "max": 406.20884419704373,
+          "q25": 46.9442406533845,
+          "q75": 144.24157987700463
+        },
+        "dept_total_value_Home & Lifestyle": {
+          "mean": 84.05471856623124,
+          "median": 72.30160035818312,
+          "std": 65.32947486693391,
+          "min": 0.0,
+          "max": 335.454388115667,
+          "q25": 33.99576564538938,
+          "q75": 111.43374613770138
+        },
+        "dept_total_units_Accessories & Footwear": {
+          "mean": 3.04,
+          "median": 3.0,
+          "std": 1.7565982989552902,
+          "min": 0.0,
+          "max": 8.0,
+          "q25": 2.0,
+          "q75": 4.0
+        },
+        "dept_total_units_Health & Wellness": {
+          "mean": 3.1266666666666665,
+          "median": 3.0,
+          "std": 1.9976384267720555,
+          "min": 0.0,
+          "max": 9.0,
+          "q25": 2.0,
+          "q75": 4.0
+        },
+        "dept_total_units_Home & Lifestyle": {
+          "mean": 2.72,
+          "median": 2.0,
+          "std": 1.780279745757491,
+          "min": 0.0,
+          "max": 7.0,
+          "q25": 1.0,
+          "q75": 4.0
+        },
+        "class_total_value_Bags & Wallets": {
+          "mean": 53.94413381176289,
+          "median": 41.44438163537705,
+          "std": 51.62582944463607,
+          "min": 0.0,
+          "max": 245.0367312517995,
+          "q25": 14.579734375544994,
+          "q75": 83.70803357231384
+        },
+        "class_total_value_Soft & Hard Accessories": {
+          "mean": 51.86807122128477,
+          "median": 43.916369269007824,
+          "std": 44.606615713703825,
+          "min": 0.0,
+          "max": 234.1281461615912,
+          "q25": 15.115122360736919,
+          "q75": 80.87914786407663
+        },
+        "class_total_value_Consumables": {
+          "mean": 60.07295214056702,
+          "median": 50.19891813444059,
+          "std": 58.91747929149578,
+          "min": 0.0,
+          "max": 312.1236873519353,
+          "q25": 12.074119708285359,
+          "q75": 87.48463167969055
+        },
+        "class_total_value_Personal Care": {
+          "mean": 61.59857549894686,
+          "median": 54.643665413004314,
+          "std": 49.743300318005346,
+          "min": 0.0,
+          "max": 231.48632686497822,
+          "q25": 23.885723967196192,
+          "q75": 86.37649173501129
+        },
+        "class_total_value_Bedding": {
+          "mean": 54.83721234084996,
+          "median": 43.33912039921346,
+          "std": 49.91611718039762,
+          "min": 0.0,
+          "max": 197.880547988101,
+          "q25": 12.318836275926312,
+          "q75": 84.65776034312935
+        },
+        "count_Baby": {
+          "mean": 0.8866666666666667,
+          "median": 1.0,
+          "std": 0.937916201424655,
+          "min": 0.0,
+          "max": 5.0,
+          "q25": 0.0,
+          "q75": 1.0
+        },
+        "count_Child": {
+          "mean": 0.84,
+          "median": 1.0,
+          "std": 0.8753139417627801,
+          "min": 0.0,
+          "max": 4.0,
+          "q25": 0.0,
+          "q75": 1.0
+        },
+        "count_size_XS": {
+          "mean": 1.2666666666666666,
+          "median": 1.0,
+          "std": 1.1624243739082256,
+          "min": 0.0,
+          "max": 4.0,
+          "q25": 0.0,
+          "q75": 2.0
+        },
+        "count_size_S": {
+          "mean": 1.42,
+          "median": 1.0,
+          "std": 1.142644994691097,
+          "min": 0.0,
+          "max": 5.0,
+          "q25": 1.0,
+          "q75": 2.0
+        },
+        "count_size_M": {
+          "mean": 1.5666666666666667,
+          "median": 1.0,
+          "std": 1.3728756214733346,
+          "min": 0.0,
+          "max": 6.0,
+          "q25": 1.0,
+          "q75": 2.0
+        },
+        "count_size_L": {
+          "mean": 1.48,
+          "median": 1.0,
+          "std": 1.3144524468003125,
+          "min": 0.0,
+          "max": 7.0,
+          "q25": 1.0,
+          "q75": 2.0
+        },
+        "count_size_XL": {
+          "mean": 1.4266666666666667,
+          "median": 1.0,
+          "std": 1.2280101581606968,
+          "min": 0.0,
+          "max": 6.0,
+          "q25": 0.25,
+          "q75": 2.0
+        }
+      },
+      "cluster_center": {
+        "total_purchases": 8.884439901893764,
+        "total_revenue": 473.4043306453277,
+        "avg_order_value": 52.74814119685734,
+        "recency_days": 77.09933643163913,
+        "frequency_per_month": 0.9033433732542115,
+        "customer_lifetime_months": 20.40603428472651,
+        "return_rate": 0.17344217479769738,
+        "dept_total_value_Accessories & Footwear": 97.19191992516369,
+        "dept_total_value_Health & Wellness": 100.98125131672157,
+        "dept_total_value_Home & Lifestyle": 83.99891909732582,
+        "dept_total_units_Accessories & Footwear": 3.039890171560791,
+        "dept_total_units_Health & Wellness": 3.125426533457489,
+        "dept_total_units_Home & Lifestyle": 2.7191231968754828,
+        "class_total_value_Bags & Wallets": 53.89620514355835,
+        "class_total_value_Soft & Hard Accessories": 51.855268845967316,
+        "class_total_value_Consumables": 60.043521484324,
+        "class_total_value_Personal Care": 61.570553008964794,
+        "class_total_value_Bedding": 54.806541856396734,
+        "count_Baby": 0.8868288322272537,
+        "count_Child": 0.8396973700158417,
+        "count_size_XS": 1.26618085658026,
+        "count_size_S": 1.4198144114126512,
+        "count_size_M": 1.5664261962728232,
+        "count_size_L": 1.4787982522397352,
+        "count_size_XL": 1.426693983145198
+      },
+      "covariance_info": {
+        "type": "full",
+        "feature_variances": {
+          "total_purchases": 0.016355995305547353,
+          "total_revenue": 0.001318309452128036,
+          "avg_order_value": 0.03550868796753371,
+          "recency_days": 0.09370200641321708,
+          "frequency_per_month": 0.037896419679277024,
+          "customer_lifetime_months": 0.9584775978652125,
+          "return_rate": 0.20627365047283547,
+          "dept_total_value_Accessories & Footwear": 0.0029407219352410247,
+          "dept_total_value_Health & Wellness": 0.0038947226458487102,
+          "dept_total_value_Home & Lifestyle": 0.0030363526943158097,
+          "dept_total_units_Accessories & Footwear": 0.033756830848367614,
+          "dept_total_units_Health & Wellness": 0.04393710280129084,
+          "dept_total_units_Home & Lifestyle": 0.03522941007262311,
+          "class_total_value_Bags & Wallets": 0.004479360484373775,
+          "class_total_value_Soft & Hard Accessories": 0.0036825134754555236,
+          "class_total_value_Consumables": 0.006096255250488016,
+          "class_total_value_Personal Care": 0.004798062650036229,
+          "class_total_value_Bedding": 0.004599425784569389,
+          "count_Baby": 0.08733406389726225,
+          "count_Child": 0.0710233610840394,
+          "count_size_XS": 0.0547626734638382,
+          "count_size_S": 0.055679243350419926,
+          "count_size_M": 0.08522005825499912,
+          "count_size_L": 0.07164712200344076,
+          "count_size_XL": 0.06525764877699056
+        }
+      }
+    },
+    "cluster_3": {
+      "cluster_id": 3,
+      "size": 155,
+      "percentage": 31.0,
+      "mixture_weight": 0.3100940028285065,
+      "probability_stats": {
+        "mean": 0.9999999975616588,
+        "std": 3.021611818523068e-08,
+        "min": 0.9999996225897655,
+        "max": 1.0,
+        "median": 1.0
+      },
+      "feature_statistics": {
+        "total_purchases": {
+          "mean": 33.116129032258065,
+          "median": 35.0,
+          "std": 9.916505222476232,
+          "min": 15.0,
+          "max": 49.0,
+          "q25": 25.0,
+          "q75": 40.0
+        },
+        "total_revenue": {
+          "mean": 3637.105548387096,
+          "median": 3384.43,
+          "std": 1326.4725021822494,
+          "min": 1375.85,
+          "max": 6838.67,
+          "q25": 2627.65,
+          "q75": 4525.895
+        },
+        "avg_order_value": {
+          "mean": 110.2233548387097,
+          "median": 110.6,
+          "std": 22.01836194402179,
+          "min": 75.21,
+          "max": 148.23,
+          "q25": 90.59,
+          "q75": 128.23000000000002
+        },
+        "recency_days": {
+          "mean": 37.30967741935484,
+          "median": 38.0,
+          "std": 13.125056705844349,
+          "min": 15.0,
+          "max": 60.0,
+          "q25": 27.0,
+          "q75": 48.0
+        },
+        "frequency_per_month": {
+          "mean": 2.8581935483870966,
+          "median": 2.91,
+          "std": 0.693383826698415,
+          "min": 1.56,
+          "max": 4.0,
+          "q25": 2.35,
+          "q75": 3.505
+        },
+        "customer_lifetime_months": {
+          "mean": 19.295483870967743,
+          "median": 18.2,
+          "std": 8.967439962003693,
+          "min": 3.0,
+          "max": 35.9,
+          "q25": 11.95,
+          "q75": 27.049999999999997
+        },
+        "return_rate": {
+          "mean": 0.10016129032258064,
+          "median": 0.102,
+          "std": 0.027544175586026662,
+          "min": 0.054,
+          "max": 0.148,
+          "q25": 0.0745,
+          "q75": 0.1235
+        },
+        "dept_total_value_Accessories & Footwear": {
+          "mean": 668.2506141873996,
+          "median": 625.0965706507809,
+          "std": 300.9713689173294,
+          "min": 103.37385752371935,
+          "max": 1710.4294426899307,
+          "q25": 465.3196941083007,
+          "q75": 905.9147379019649
+        },
+        "dept_total_value_Health & Wellness": {
+          "mean": 663.0964281171855,
+          "median": 633.4206406115642,
+          "std": 323.15024445505725,
+          "min": 72.37599213777209,
+          "max": 1587.814871487486,
+          "q25": 445.74472849387473,
+          "q75": 827.8813599064702
+        },
+        "dept_total_value_Home & Lifestyle": {
+          "mean": 649.2419202818438,
+          "median": 619.1373961280066,
+          "std": 281.62343525860103,
+          "min": 51.5223125961623,
+          "max": 1443.1667775245207,
+          "q25": 426.6615327336996,
+          "q75": 824.4487086790332
+        },
+        "dept_total_units_Accessories & Footwear": {
+          "mean": 11.12258064516129,
+          "median": 11.0,
+          "std": 4.196992559414276,
+          "min": 3.0,
+          "max": 21.0,
+          "q25": 8.0,
+          "q75": 14.0
+        },
+        "dept_total_units_Health & Wellness": {
+          "mean": 11.161290322580646,
+          "median": 11.0,
+          "std": 4.646579346460975,
+          "min": 1.0,
+          "max": 24.0,
+          "q25": 8.0,
+          "q75": 14.0
+        },
+        "dept_total_units_Home & Lifestyle": {
+          "mean": 10.832258064516129,
+          "median": 11.0,
+          "std": 4.140110034987167,
+          "min": 1.0,
+          "max": 20.0,
+          "q25": 7.5,
+          "q75": 14.0
+        },
+        "class_total_value_Bags & Wallets": {
+          "mean": 397.4777600189453,
+          "median": 371.52476478792676,
+          "std": 216.37670426812983,
+          "min": 14.501352458013995,
+          "max": 1076.2210490249254,
+          "q25": 248.7703967898604,
+          "q75": 504.43426994605716
+        },
+        "class_total_value_Soft & Hard Accessories": {
+          "mean": 395.3913644125489,
+          "median": 345.7206457288292,
+          "std": 212.4451670792581,
+          "min": 23.327780882292327,
+          "max": 935.1033140082404,
+          "q25": 238.2430042969427,
+          "q75": 544.679478023283
+        },
+        "class_total_value_Consumables": {
+          "mean": 394.77154705787916,
+          "median": 368.7846267466011,
+          "std": 187.95713925039632,
+          "min": 73.11918208687624,
+          "max": 1163.4203915348305,
+          "q25": 265.34818675415715,
+          "q75": 469.38036104747493
+        },
+        "class_total_value_Personal Care": {
+          "mean": 397.67899395324577,
+          "median": 365.3252759200685,
+          "std": 216.81567038895085,
+          "min": 0.0,
+          "max": 1143.8145698615087,
+          "q25": 263.64541955472924,
+          "q75": 514.1693915853766
+        },
+        "class_total_value_Bedding": {
+          "mean": 395.2692971438095,
+          "median": 374.4312356727681,
+          "std": 214.41044667181666,
+          "min": 26.7301418888662,
+          "max": 943.1992459225282,
+          "q25": 222.97439184821278,
+          "q75": 527.6788796799376
+        },
+        "count_Baby": {
+          "mean": 3.4193548387096775,
+          "median": 3.0,
+          "std": 1.980000550117776,
+          "min": 0.0,
+          "max": 9.0,
+          "q25": 2.0,
+          "q75": 5.0
+        },
+        "count_Child": {
+          "mean": 3.0903225806451613,
+          "median": 3.0,
+          "std": 1.810387566798688,
+          "min": 0.0,
+          "max": 7.0,
+          "q25": 2.0,
+          "q75": 4.0
+        },
+        "count_size_XS": {
+          "mean": 5.225806451612903,
+          "median": 5.0,
+          "std": 2.673944474592705,
+          "min": 0.0,
+          "max": 12.0,
+          "q25": 3.0,
+          "q75": 7.0
+        },
+        "count_size_S": {
+          "mean": 5.645161290322581,
+          "median": 6.0,
+          "std": 2.8575303465770423,
+          "min": 0.0,
+          "max": 15.0,
+          "q25": 3.0,
+          "q75": 8.0
+        },
+        "count_size_M": {
+          "mean": 5.27741935483871,
+          "median": 5.0,
+          "std": 2.6100094140024477,
+          "min": 0.0,
+          "max": 16.0,
+          "q25": 3.5,
+          "q75": 7.0
+        },
+        "count_size_L": {
+          "mean": 5.245161290322581,
+          "median": 5.0,
+          "std": 2.7712389640546005,
+          "min": 0.0,
+          "max": 14.0,
+          "q25": 3.0,
+          "q75": 7.0
+        },
+        "count_size_XL": {
+          "mean": 5.212903225806452,
+          "median": 5.0,
+          "std": 2.8603584753413442,
+          "min": 0.0,
+          "max": 14.0,
+          "q25": 3.0,
+          "q75": 7.0
+        }
+      },
+      "cluster_center": {
+        "total_purchases": 33.111161246708406,
+        "total_revenue": 3636.414015968158,
+        "avg_order_value": 110.21476285732464,
+        "recency_days": 37.307855833064934,
+        "frequency_per_month": 2.858062563459833,
+        "customer_lifetime_months": 19.294876917476625,
+        "return_rate": 0.10015318487397756,
+        "dept_total_value_Accessories & Footwear": 668.0990045413838,
+        "dept_total_value_Health & Wellness": 662.9975954984714,
+        "dept_total_value_Home & Lifestyle": 649.1278548847832,
+        "dept_total_units_Accessories & Footwear": 11.120282926410836,
+        "dept_total_units_Health & Wellness": 11.160126259362166,
+        "dept_total_units_Home & Lifestyle": 10.830752060935406,
+        "class_total_value_Bags & Wallets": 397.4214720956943,
+        "class_total_value_Soft & Hard Accessories": 395.3016229174075,
+        "class_total_value_Consumables": 394.7009572319367,
+        "class_total_value_Personal Care": 397.60462842930247,
+        "class_total_value_Bedding": 395.1957742502975,
+        "count_Baby": 3.418455220798837,
+        "count_Child": 3.089962782703994,
+        "count_size_XS": 5.225090568313938,
+        "count_size_S": 5.644085552078665,
+        "count_size_M": 5.276550882627315,
+        "count_size_L": 5.2452357978115325,
+        "count_size_XL": 5.211780442374127
+      },
+      "covariance_info": {
+        "type": "full",
+        "feature_variances": {
+          "total_purchases": 0.12903162449470687,
+          "total_revenue": 0.03827451144443697,
+          "avg_order_value": 0.08772929261707053,
+          "recency_days": 0.022831455173096597,
+          "frequency_per_month": 0.09611866102120788,
+          "customer_lifetime_months": 0.9398591045168565,
+          "return_rate": 0.08455075222588432,
+          "dept_total_value_Accessories & Footwear": 0.06073739684177189,
+          "dept_total_value_Health & Wellness": 0.072258541937838,
+          "dept_total_value_Home & Lifestyle": 0.056572942475550336,
+          "dept_total_units_Accessories & Footwear": 0.19285910827867786,
+          "dept_total_units_Health & Wellness": 0.23806597222909937,
+          "dept_total_units_Home & Lifestyle": 0.19073048626883715,
+          "class_total_value_Bags & Wallets": 0.07889959390548879,
+          "class_total_value_Soft & Hard Accessories": 0.08356504616575747,
+          "class_total_value_Consumables": 0.06210866628469664,
+          "class_total_value_Personal Care": 0.09123517385560122,
+          "class_total_value_Bedding": 0.08495324005956176,
+          "count_Baby": 0.38938726824827735,
+          "count_Child": 0.3040279319743969,
+          "count_size_XS": 0.2898944337347097,
+          "count_size_S": 0.348362837170636,
+          "count_size_M": 0.30804085597106284,
+          "count_size_L": 0.31941386871673966,
+          "count_size_XL": 0.35426626116310667
+        }
+      }
+    }
+  }
+}

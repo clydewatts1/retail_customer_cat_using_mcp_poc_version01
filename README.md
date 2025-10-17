@@ -1,13 +1,14 @@
 # Retail Customer Segmentation using Machine Learning POC
 
-This is a proof of concept project that demonstrates customer segmentation based on retail sales data using fuzzy clustering and neural network approaches. The clustering results are enriched with meaningful descriptions and metadata for AI agent-driven customer interactions.
+This is a proof of concept project that demonstrates customer segmentation based on retail sales data using fuzzy clustering, neural network, and Gaussian Mixture Model (GMM) approaches. The clustering results are enriched with meaningful descriptions and metadata for AI agent-driven customer interactions.
 
 ## Overview
 
 This POC implements:
-- **Synthetic Data Generation**: Creates realistic retail customer sales data
+- **Synthetic Data Generation**: Creates realistic retail customer sales data with hierarchical product structure
 - **Fuzzy C-Means Clustering**: Soft clustering that allows customers to belong to multiple segments with varying degrees
 - **Neural Network Clustering**: Deep learning-based clustering using autoencoders
+- **GMM Clustering**: Probabilistic clustering using Gaussian Mixture Models with uncertainty quantification
 - **Cluster Enrichment**: Adds human-readable descriptions, segment names, and interaction strategies
 - **AI Agent Integration**: Exports data in a format suitable for AI agents to perform customer interactions
 
@@ -16,6 +17,7 @@ This POC implements:
 ### 1. Data Generation
 - Generates synthetic customer sales data with realistic patterns
 - Includes key RFM (Recency, Frequency, Monetary) metrics
+- Hierarchical product structure: Departments → Classes
 - Creates multiple customer segments with distinct characteristics
 
 ### 2. Fuzzy Clustering
@@ -28,7 +30,14 @@ This POC implements:
 - Performs dimensionality reduction before clustering
 - Can capture complex non-linear relationships
 
-### 4. Cluster Enrichment
+### 4. GMM Clustering (New!)
+- Probabilistic clustering with Gaussian distributions
+- Provides soft assignments (probability distributions)
+- Uncertainty quantification for cluster memberships
+- Model selection via BIC/AIC metrics
+- Multiple covariance structure options
+
+### 5. Cluster Enrichment
 - Generates descriptive segment names (e.g., "VIP Champions", "Loyal Regulars")
 - Creates detailed descriptions of each segment
 - Provides actionable interaction strategies for each segment
@@ -134,6 +143,33 @@ centers = neural_model.get_cluster_centers(customer_data)
 metrics = neural_model.evaluate(customer_data)
 ```
 
+#### GMM Clustering
+
+```python
+from customer_segmentation import GMMCustomerSegmentation
+
+# Initialize model
+gmm_model = GMMCustomerSegmentation(
+    n_clusters=4,
+    covariance_type='full',
+    max_iter=200,
+    n_init=10
+)
+
+# Fit and predict (returns both labels and probabilities)
+cluster_labels, probabilities = gmm_model.fit_predict(customer_data)
+
+# Get cluster centers
+centers = gmm_model.get_cluster_centers()
+
+# Evaluate clustering quality
+metrics = gmm_model.evaluate(customer_data)
+
+# Analyze assignment uncertainty
+uncertainty = gmm_model.get_uncertainty_metrics(customer_data)
+print(f"High Confidence Customers: {uncertainty['high_confidence_pct']:.1f}%")
+```
+
 #### Cluster Enrichment
 
 ```python
@@ -152,6 +188,28 @@ enriched_profiles = enrichment.enrich_clusters(
 # Export for AI agents
 enrichment.export_for_ai_agent('customer_segments_for_ai.json')
 ```
+
+## Example Scripts
+
+### 1. Run Complete Segmentation Pipeline
+```bash
+cd examples
+python run_segmentation_pipeline.py
+```
+
+### 2. Run GMM Clustering Only
+```bash
+cd examples
+python run_gmm_clustering.py
+```
+
+### 3. Interactive Jupyter Notebook
+```bash
+cd examples
+jupyter notebook customer_segmentation_analysis.ipynb
+```
+
+The notebook includes all three clustering methods with comprehensive visualizations and comparisons.
 
 ## Output Files
 

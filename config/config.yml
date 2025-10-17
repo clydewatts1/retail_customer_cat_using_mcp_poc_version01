@@ -288,6 +288,38 @@ fuzzy_clustering:
     - "frequency_per_month"
     - "customer_lifetime_months"
     - "return_rate"
+  
+  # Optional: Include enriched department/class features
+  use_enriched_features: true
+  enriched_features_to_use:
+    # Department value features
+    - "dept_total_value_Accessories & Footwear"
+    - "dept_total_value_Health & Wellness"
+    - "dept_total_value_Home & Lifestyle"
+    # Department unit features
+    - "dept_total_units_Accessories & Footwear"
+    - "dept_total_units_Health & Wellness"
+    - "dept_total_units_Home & Lifestyle"
+    # Class value features
+    - "class_total_value_Bags & Wallets"
+    - "class_total_value_Soft & Hard Accessories"
+    - "class_total_value_Consumables"
+    - "class_total_value_Personal Care"
+    - "class_total_value_Bedding"
+    # Size/age features
+    - "count_Baby"
+    - "count_Child"
+    - "count_size_XS"
+    - "count_size_S"
+    - "count_size_M"
+    - "count_size_L"
+    - "count_size_XL"
+  
+  # Output column names (generated after clustering)
+  output_columns:
+    cluster_label: "fuzzy_cluster"
+    membership_prefix: "fuzzy_membership_cluster_"
+    cluster_center_distance_prefix: "fuzzy_distance_to_cluster_"
 
 # Neural Clustering Configuration
 neural_clustering:
@@ -309,6 +341,37 @@ neural_clustering:
     - "frequency_per_month"
     - "customer_lifetime_months"
     - "return_rate"
+  
+  # Optional: Include enriched department/class features
+  use_enriched_features: false
+  enriched_features_to_use:
+    # Department value features
+    - "dept_total_value_Accessories & Footwear"
+    - "dept_total_value_Health & Wellness"
+    - "dept_total_value_Home & Lifestyle"
+    # Department unit features
+    - "dept_total_units_Accessories & Footwear"
+    - "dept_total_units_Health & Wellness"
+    - "dept_total_units_Home & Lifestyle"
+    # Class value features
+    - "class_total_value_Bags & Wallets"
+    - "class_total_value_Soft & Hard Accessories"
+    - "class_total_value_Consumables"
+    - "class_total_value_Personal Care"
+    - "class_total_value_Bedding"
+    # Size/age features
+    - "count_Baby"
+    - "count_Child"
+    - "count_size_XS"
+    - "count_size_S"
+    - "count_size_M"
+    - "count_size_L"
+    - "count_size_XL"
+  
+  # Output column names (generated after clustering)
+  output_columns:
+    cluster_label: "neural_cluster"
+    encoded_features_prefix: "neural_encoded_"
 
 # Cluster Enrichment Configuration
 cluster_enrichment:
