@@ -1,0 +1,359 @@
+{
+  "metadata": {
+    "method": "Neural Network (Autoencoder + K-Means)",
+    "timestamp": "2025-10-17T05:41:33.338658",
+    "n_clusters": 4,
+    "n_samples": 500,
+    "encoding_dim": 10,
+    "epochs": 50,
+    "batch_size": 32
+  },
+  "metrics": {
+    "silhouette_score": 0.32284616200509114,
+    "reconstruction_error": 0.019939010874664365
+  },
+  "features_used": [
+    "total_purchases",
+    "total_revenue",
+    "avg_order_value",
+    "recency_days",
+    "frequency_per_month",
+    "customer_lifetime_months",
+    "return_rate"
+  ],
+  "encoding_dimension": 10,
+  "clusters": {
+    "cluster_0": {
+      "cluster_id": 0,
+      "size": 108,
+      "percentage": 21.6,
+      "encoded_space_stats": {
+        "mean_distance_to_center": 0.894006609916687,
+        "std_distance_to_center": 0.29190489649772644
+      },
+      "feature_statistics": {
+        "total_purchases": {
+          "mean": 12.407407407407407,
+          "median": 10.0,
+          "std": 9.918393219507232,
+          "min": 1.0,
+          "max": 42.0,
+          "q25": 6.0,
+          "q75": 14.0
+        },
+        "total_revenue": {
+          "mean": 1063.4294444444445,
+          "median": 454.515,
+          "std": 1319.5337946027578,
+          "min": 30.19,
+          "max": 5119.98,
+          "q25": 298.265,
+          "q75": 962.115
+        },
+        "avg_order_value": {
+          "mean": 65.99185185185186,
+          "median": 57.995000000000005,
+          "std": 32.58145588469969,
+          "min": 22.61,
+          "max": 148.23,
+          "q25": 42.2725,
+          "q75": 73.3775
+        },
+        "recency_days": {
+          "mean": 76.11111111111111,
+          "median": 67.0,
+          "std": 41.83553319854105,
+          "min": 15.0,
+          "max": 210.0,
+          "q25": 41.75,
+          "q75": 105.0
+        },
+        "frequency_per_month": {
+          "mean": 1.283425925925926,
+          "median": 1.005,
+          "std": 1.0226976988567043,
+          "min": 0.06,
+          "max": 3.79,
+          "q25": 0.54,
+          "q75": 1.47
+        },
+        "customer_lifetime_months": {
+          "mean": 11.643518518518519,
+          "median": 10.55,
+          "std": 5.442104340589168,
+          "min": 3.0,
+          "max": 27.0,
+          "q25": 7.5,
+          "q75": 14.9
+        },
+        "return_rate": {
+          "mean": 0.17837962962962967,
+          "median": 0.178,
+          "std": 0.057773116923997454,
+          "min": 0.061,
+          "max": 0.363,
+          "q25": 0.1325,
+          "q75": 0.22525
+        }
+      },
+      "cluster_center": {
+        "total_purchases": 12.407407407407401,
+        "total_revenue": 1063.4294444444436,
+        "avg_order_value": 65.99185185185186,
+        "recency_days": 76.11111111111111,
+        "frequency_per_month": 1.2834259259259255,
+        "customer_lifetime_months": 11.643518518518519,
+        "return_rate": 0.17837962962962964
+      }
+    },
+    "cluster_1": {
+      "cluster_id": 1,
+      "size": 114,
+      "percentage": 22.8,
+      "encoded_space_stats": {
+        "mean_distance_to_center": 0.9602460265159607,
+        "std_distance_to_center": 0.30291232466697693
+      },
+      "feature_statistics": {
+        "total_purchases": {
+          "mean": 73.20175438596492,
+          "median": 73.0,
+          "std": 13.443542927830233,
+          "min": 50.0,
+          "max": 99.0,
+          "q25": 61.25,
+          "q75": 83.75
+        },
+        "total_revenue": {
+          "mean": 16515.33421052632,
+          "median": 16324.48,
+          "std": 4368.62963629053,
+          "min": 8985.03,
+          "max": 27977.85,
+          "q25": 13434.205,
+          "q75": 18558.165
+        },
+        "avg_order_value": {
+          "mean": 225.78833333333333,
+          "median": 221.205,
+          "std": 43.25384885256423,
+          "min": 153.91,
+          "max": 298.77,
+          "q25": 189.64000000000001,
+          "q75": 264.2075
+        },
+        "recency_days": {
+          "mean": 14.649122807017545,
+          "median": 13.5,
+          "std": 8.423505309643907,
+          "min": 1.0,
+          "max": 29.0,
+          "q25": 7.25,
+          "q75": 23.0
+        },
+        "frequency_per_month": {
+          "mean": 5.9885087719298244,
+          "median": 5.97,
+          "std": 1.15539154184485,
+          "min": 4.16,
+          "max": 7.99,
+          "q25": 4.9575000000000005,
+          "q75": 6.9475
+        },
+        "customer_lifetime_months": {
+          "mean": 19.8078947368421,
+          "median": 19.25,
+          "std": 9.6440925541163,
+          "min": 3.1,
+          "max": 35.9,
+          "q25": 11.625,
+          "q75": 26.85
+        },
+        "return_rate": {
+          "mean": 0.031447368421052634,
+          "median": 0.0325,
+          "std": 0.01227926672255293,
+          "min": 0.011,
+          "max": 0.05,
+          "q25": 0.02,
+          "q75": 0.042
+        }
+      },
+      "cluster_center": {
+        "total_purchases": 73.20175438596492,
+        "total_revenue": 16515.334210526315,
+        "avg_order_value": 225.7883333333333,
+        "recency_days": 14.649122807017548,
+        "frequency_per_month": 5.9885087719298244,
+        "customer_lifetime_months": 19.807894736842105,
+        "return_rate": 0.03144736842105267
+      }
+    },
+    "cluster_2": {
+      "cluster_id": 2,
+      "size": 67,
+      "percentage": 13.4,
+      "encoded_space_stats": {
+        "mean_distance_to_center": 0.9190492630004883,
+        "std_distance_to_center": 0.27160710096359253
+      },
+      "feature_statistics": {
+        "total_purchases": {
+          "mean": 2.791044776119403,
+          "median": 3.0,
+          "std": 1.1083336308885792,
+          "min": 1.0,
+          "max": 5.0,
+          "q25": 2.0,
+          "q75": 4.0
+        },
+        "total_revenue": {
+          "mean": 109.26388059701493,
+          "median": 103.55,
+          "std": 50.56906414349748,
+          "min": 28.93,
+          "max": 256.83,
+          "q25": 73.565,
+          "q75": 130.115
+        },
+        "avg_order_value": {
+          "mean": 39.551492537313436,
+          "median": 38.66,
+          "std": 11.316002112017562,
+          "min": 20.12,
+          "max": 57.58,
+          "q25": 28.185,
+          "q75": 50.685
+        },
+        "recency_days": {
+          "mean": 274.13432835820896,
+          "median": 275.0,
+          "std": 58.88326806703399,
+          "min": 141.0,
+          "max": 362.0,
+          "q25": 238.5,
+          "q75": 326.5
+        },
+        "frequency_per_month": {
+          "mean": 0.15835820895522387,
+          "median": 0.15,
+          "std": 0.0708091120425804,
+          "min": 0.06,
+          "max": 0.3,
+          "q25": 0.09,
+          "q75": 0.21
+        },
+        "customer_lifetime_months": {
+          "mean": 20.356716417910448,
+          "median": 21.0,
+          "std": 9.733342007269854,
+          "min": 3.4,
+          "max": 35.5,
+          "q25": 12.15,
+          "q75": 28.25
+        },
+        "return_rate": {
+          "mean": 0.30789552238805973,
+          "median": 0.314,
+          "std": 0.05196068861615866,
+          "min": 0.203,
+          "max": 0.395,
+          "q25": 0.2675,
+          "q75": 0.3505
+        }
+      },
+      "cluster_center": {
+        "total_purchases": 2.7910447761193993,
+        "total_revenue": 109.2638805970164,
+        "avg_order_value": 39.551492537313436,
+        "recency_days": 274.134328358209,
+        "frequency_per_month": 0.15835820895522357,
+        "customer_lifetime_months": 20.356716417910448,
+        "return_rate": 0.3078955223880596
+      }
+    },
+    "cluster_3": {
+      "cluster_id": 3,
+      "size": 211,
+      "percentage": 42.199999999999996,
+      "encoded_space_stats": {
+        "mean_distance_to_center": 0.8959238529205322,
+        "std_distance_to_center": 0.2020290493965149
+      },
+      "feature_statistics": {
+        "total_purchases": {
+          "mean": 24.46445497630332,
+          "median": 24.0,
+          "std": 14.721944005353798,
+          "min": 3.0,
+          "max": 49.0,
+          "q25": 11.0,
+          "q75": 38.0
+        },
+        "total_revenue": {
+          "mean": 2471.010568720379,
+          "median": 2403.23,
+          "std": 1911.7597433876917,
+          "min": 102.73,
+          "max": 6838.67,
+          "q25": 510.895,
+          "q75": 3939.605
+        },
+        "avg_order_value": {
+          "mean": 87.27649289099526,
+          "median": 84.68,
+          "std": 33.500423551319564,
+          "min": 30.08,
+          "max": 147.71,
+          "q25": 59.095,
+          "q75": 115.61
+        },
+        "recency_days": {
+          "mean": 53.52132701421801,
+          "median": 48.0,
+          "std": 27.863156593851766,
+          "min": 15.0,
+          "max": 146.0,
+          "q25": 33.0,
+          "q75": 67.0
+        },
+        "frequency_per_month": {
+          "mean": 2.0965402843601897,
+          "median": 2.14,
+          "std": 1.1430530846473508,
+          "min": 0.24,
+          "max": 4.0,
+          "q25": 0.96,
+          "q75": 3.025
+        },
+        "customer_lifetime_months": {
+          "mean": 23.70947867298578,
+          "median": 24.4,
+          "std": 7.6021303538810825,
+          "min": 5.2,
+          "max": 36.0,
+          "q25": 18.15,
+          "q75": 29.5
+        },
+        "return_rate": {
+          "mean": 0.12276303317535545,
+          "median": 0.116,
+          "std": 0.046457668989079645,
+          "min": 0.054,
+          "max": 0.247,
+          "q25": 0.0865,
+          "q75": 0.1455
+        }
+      },
+      "cluster_center": {
+        "total_purchases": 24.464454976303315,
+        "total_revenue": 2471.01056872038,
+        "avg_order_value": 87.27649289099527,
+        "recency_days": 53.521327014218,
+        "frequency_per_month": 2.0965402843601892,
+        "customer_lifetime_months": 23.70947867298578,
+        "return_rate": 0.12276303317535545
+      }
+    }
+  }
+}
