@@ -2,6 +2,13 @@
 
 This is a proof of concept project that demonstrates customer segmentation based on retail sales data using fuzzy clustering, neural network, and Gaussian Mixture Model (GMM) approaches. The clustering results are enriched with meaningful descriptions and metadata for AI agent-driven customer interactions.
 
+## NOTE
+
+This project has been cancelled. The POC version 1 worked in principal but the functionality was flawed. 
+The synthetic data was flawed. The project will need to start again
+
+
+
 ## Overview
 
 This POC implements:
