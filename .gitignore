@@ -206,6 +206,29 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 
+# Project specific
+# Data files (keep directory structure, ignore actual data files)
+data/raw/*
+data/processed/*
+data/external/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/external/.gitkeep
+!data/**/README.md
+
+# Model files (keep directory structure, ignore model binaries)
+models/*
+!models/.gitkeep
+!models/README.md
+!models/**/README.md
+*.h5
+*.pkl
+*.pt
+*.pth
+*.onnx
+
+# Jupyter Notebook outputs
+*.nbconvert.ipynb
 # Generated data and visualizations (regenerated on each run)
 data/*.csv
 data/*.json
