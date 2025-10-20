@@ -14,7 +14,16 @@ This POC implements:
 
 ## Features
 
-### 1. Data Generation
+### 1. Data Generation (✨ Enhanced with Personas!)
+- **Persona-Based Generation**: 10 realistic customer personas with distinct behavioral patterns
+  - teenage_girl, teenage_boy, young_woman_fashion, young_man_fashion
+  - woman_with_baby, woman_young_family
+  - professional_woman, professional_man
+  - budget_shopper, mature_shopper
+- **Full Product Hierarchy**: 21 departments, 394 product classes
+- **Dual Dataset Output**: 
+  - **Basic Dataset** (51 columns): Core RFM metrics + department totals for clustering
+  - **Enriched Dataset** (757 columns): Full features including persona type, class details, customer profiles
 - Generates synthetic customer sales data with realistic patterns
 - Includes key RFM (Recency, Frequency, Monetary) metrics
 - Hierarchical product structure: Departments → Classes
@@ -90,37 +99,60 @@ This will:
 
 ### Using Individual Components
 
-#### Generate Customer Data
+#### Generate Customer Data (with Personas)
 
 ```python
 from customer_segmentation import RetailDataGenerator
 
-# Create generator (Faker optional)
-generator = RetailDataGenerator(seed=42, faker_enabled=True, faker_locale='en_US')
+# Create generator with persona support (recommended)
+generator = RetailDataGenerator(
+    seed=42,
+    faker_enabled=True,
+    faker_locale='en_US',
+    use_personas=True,  # Enable persona-based generation
+    personas_config_path='config/personas.yml',
+    hierarchy_config_path='hierarchy_parsed.yml'
+)
 
-# Generate customer data
-customer_data = generator.generate_customer_data(n_customers=500)
+# Generate DUAL datasets (basic for clustering, enriched for analysis)
+enriched_data = generator.generate_customer_data(
+    n_customers=500,
+    dataset_type='both'  # Generates both datasets
+)
+# Basic dataset auto-saved to: data/customer_sales_data_basic.csv
+# Enriched dataset returned and can be saved manually
 
-# Save to file
-generator.save_data(customer_data, 'customer_data.csv')
+# OR generate only enriched dataset
+enriched_data = generator.generate_customer_data(n_customers=500, dataset_type='enriched')
+
+# OR generate only basic dataset (for clustering)
+basic_data = generator.generate_customer_data(n_customers=500, dataset_type='basic')
+
+# Legacy mode (backwards compatible - 4 segments without personas)
+legacy_generator = RetailDataGenerator(seed=42, use_personas=False)
+legacy_data = legacy_generator.generate_customer_data(n_customers=500)
 ```
 
-#### Fuzzy Clustering
+#### Fuzzy Clustering (Use Basic Dataset)
 
 ```python
 from customer_segmentation import FuzzyCustomerSegmentation
+import pandas as pd
+
+# Load BASIC dataset (recommended for clustering - prevents overfitting)
+basic_data = pd.read_csv('data/customer_sales_data_basic.csv')
 
 # Initialize model
 fuzzy_model = FuzzyCustomerSegmentation(n_clusters=4, m=2.0)
 
 # Fit and predict
-cluster_labels, membership_matrix = fuzzy_model.fit_predict(customer_data)
+cluster_labels, membership_matrix = fuzzy_model.fit_predict(basic_data)
 
 # Get cluster centers
 centers = fuzzy_model.get_cluster_centers()
 
 # Evaluate clustering quality
-metrics = fuzzy_model.evaluate(customer_data)
+metrics = fuzzy_model.evaluate(basic_data)
 ```
 
 #### Neural Network Clustering
@@ -191,24 +223,91 @@ enriched_profiles = enrichment.enrich_clusters(
 enrichment.export_for_ai_agent('customer_segments_for_ai.json')
 ```
 
+## Persona System
+
+### Overview
+The persona system generates realistic customer behavioral patterns based on 10 distinct customer types. Each persona has:
+- **Demographics**: Age range, gender, lifestyle characteristics
+- **Department Preferences**: Weighted preferences across 21 retail departments
+- **Class Preferences**: Preferred product classes within each department
+- **Spending Profile**: Average order value ranges and purchase frequency
+
+### Available Personas
+1. **teenage_girl** (10%) - Fashion-focused teenager, Ladies Clothing & Accessories
+2. **teenage_boy** (10%) - Sports & casual wear enthusiast
+3. **young_woman_fashion** (12%) - Trendy young professional, high spender
+4. **young_man_fashion** (10%) - Style-conscious male shopper
+5. **woman_with_baby** (8%) - New mother, focused on Kids Clothing & Accessories
+6. **woman_young_family** (12%) - Family shopper across multiple departments
+7. **professional_woman** (10%) - Career-focused, formal wear preference
+8. **professional_man** (10%) - Business attire focus
+9. **budget_shopper** (10%) - Value-seeking across departments
+10. **mature_shopper** (8%) - Gift-focused, Home & Xmas Shop preference
+
+### Customizing Personas
+Edit `config/personas.yml` to:
+- Adjust persona weights (must sum to 1.0)
+- Modify department preferences
+- Change spending ranges
+- Add new personas
+
+See `PERSONA_IMPLEMENTATION_COMPLETE.md` for detailed documentation.
+
+## Dataset Types
+
+### Basic Dataset (for Clustering)
+**51 columns** - Optimized for clustering algorithms
+- Core RFM metrics: total_purchases, total_revenue, avg_order_value, recency_days, frequency_per_month
+- Customer lifetime: customer_lifetime_months, return_rate
+- Department summaries: dept_total_value_* (21 columns), dept_total_units_* (21 columns)
+- Ground truth: true_segment
+
+**Use for:** Fuzzy clustering, Neural clustering, GMM clustering
+
+### Enriched Dataset (for Analysis)
+**757 columns** - Full customer profiles and detailed analytics
+- All basic features PLUS:
+- Persona information: persona_type
+- Customer profile: first_name, last_name, email, phone, address, city, state, zip_code, country
+- Class-level details: class_total_value_* (394 columns), class_total_units_* (394 columns)
+- Size/age breakdowns: count_Baby, count_Child, count_size_* (7 columns)
+
+**Use for:** Business intelligence, persona analysis, detailed customer insights, AI agent context
+
 ## Example Scripts
 
-### 1. Run Complete Segmentation Pipeline
+### 1. Generate Data with Personas
 ```bash
-cd examples
-python run_segmentation_pipeline.py
+python examples/generate_customer_data.py
+```
+Generates both basic and enriched datasets with persona distribution report.
+
+### 2. Run Complete Segmentation Pipeline
+```bash
+python examples/run_segmentation_pipeline.py
+```
+Uses basic dataset for clustering, enriched dataset for analysis.
+
+### 3. Validate Persona Distribution
+```bash
+python examples/validate_persona_distribution.py
+```
+Generates 1000 customers and validates persona behavior patterns.
+
+### 4. Test Persona Generation
+```bash
+python examples/test_persona_generation.py
+```
+Quick test of persona system with small datasets.
+
+### 5. Run GMM Clustering Only
+```bash
+python examples/run_gmm_clustering.py
 ```
 
-### 2. Run GMM Clustering Only
+### 6. Interactive Jupyter Notebook
 ```bash
-cd examples
-python run_gmm_clustering.py
-```
-
-### 3. Interactive Jupyter Notebook
-```bash
-cd examples
-jupyter notebook customer_segmentation_analysis.ipynb
+jupyter notebook examples/customer_segmentation_analysis.ipynb
 ```
 
 The notebook includes all three clustering methods with comprehensive visualizations and comparisons.

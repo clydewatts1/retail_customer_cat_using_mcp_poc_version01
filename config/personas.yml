@@ -1,0 +1,484 @@
+# ============================================================================
+# CUSTOMER PERSONA SYSTEM - 10 Detailed Personas
+# ============================================================================
+# This configuration defines 10 distinct customer personas with detailed
+# shopping preferences, demographics, and spending patterns.
+
+customer_personas:
+  
+  # ===== Persona 1: Teenage Girl (13-15) =====
+  teenage_girl:
+    weight: 0.10  # 10% of customers
+    description: "Fashion-conscious teenage girl, active on social media, loves trendy items"
+    demographics:
+      age_range: [13, 15]
+      gender: "Female"
+      has_children: false
+      lifestyle: "student"
+    
+    # Department preferences (must sum to 1.0)
+    department_preferences:
+      "Ladies Clothing": 0.35
+      "Accessories": 0.25
+      "Health & Beauty": 0.20
+      "Xmas Shop": 0.10
+      "Primarket": 0.05
+      "Sports Shop": 0.05
+    
+    # Preferred classes within departments
+    class_preferences:
+      "Ladies Clothing":
+        - "Fashion Jersey"
+        - "Dresses & Skirts"
+        - "Casual Shorts"
+        - "Youth"
+        - "Tops"
+        - "SPORTSWEAR"
+      "Accessories":
+        - "Ladies Jewellery"
+        - "Ladies Scarves"
+        - "Purses"
+        - "SUNGLASSES"
+        - "Hair"
+        - "HAIR ACCESSORIES"
+      "Health & Beauty":
+        - "MAKE UP"
+        - "Skincare"
+        - "Hair"
+        - "Love Beauty"
+        - "False Nails and Lashes"
+    
+    spending_profile:
+      avg_order_value: [30, 60]
+      frequency_per_month: [1, 2.5]
+      typical_segment: "low_value_occasional"  # Maps to segment 3
+    
+  # ===== Persona 2: Teenage Boy (13-15) =====
+  teenage_boy:
+    weight: 0.10  # 10% of customers
+    description: "Sports-loving teenage boy, casual fashion, tech-interested"
+    demographics:
+      age_range: [13, 15]
+      gender: "Male"
+      has_children: false
+      lifestyle: "student"
+    
+    department_preferences:
+      "Mens Clothing": 0.40
+      "Sports Shop": 0.25
+      "Primarket": 0.15
+      "Accessories": 0.10
+      "Mens Accessories": 0.10
+    
+    class_preferences:
+      "Mens Clothing":
+        - "BASIC T-SHIRTS"
+        - "FASHION T-SHIRTS"
+        - "SHORTS"
+        - "Mens Casual Trousers"
+        - "DENIM"
+        - "Basic Leisurewear"
+      "Sports Shop":
+        - "MENS PERFORMANCE"
+        - "MENS BRANDED"
+        - "Socks"
+      "Primarket":
+        - "Technology"
+        - "Entertainment"
+        - "Toys"
+    
+    spending_profile:
+      avg_order_value: [25, 55]
+      frequency_per_month: [0.8, 2]
+      typical_segment: "low_value_occasional"
+  
+  # ===== Persona 3: Young Woman - Fashion Conscious (17-25) =====
+  young_woman_fashion:
+    weight: 0.12  # 12% of customers
+    description: "Trendy young woman, fashion-forward, regular online shopper"
+    demographics:
+      age_range: [17, 25]
+      gender: "Female"
+      has_children: false
+      lifestyle: "young_professional_student"
+    
+    department_preferences:
+      "Ladies Clothing": 0.40
+      "Ladies Footwear": 0.15
+      "Health & Beauty": 0.15
+      "Accessories": 0.15
+      "Uwear & Nwear": 0.10
+      "Ladies Hosiery": 0.05
+    
+    class_preferences:
+      "Ladies Clothing":
+        - "Fashion Jersey"
+        - "Dresses & Skirts"
+        - "Contemporary Collections"
+        - "Ladies Denim"
+        - "Edit"
+        - "Ladies Limited Edition"
+        - "Tops"
+        - "Co-ordinates"
+      "Ladies Footwear":
+        - "Heels"
+        - "Casual Footwear"
+        - "Flats"
+        - "Ladies Boots"
+        - "Sandals"
+      "Health & Beauty":
+        - "MAKE UP"
+        - "Skincare"
+        - "Fragrance"
+        - "Love Beauty"
+        - "Hair"
+    
+    spending_profile:
+      avg_order_value: [75, 150]
+      frequency_per_month: [2, 4]
+      typical_segment: "medium_value_regular"
+  
+  # ===== Persona 4: Young Man - Fashion Conscious (17-25) =====
+  young_man_fashion:
+    weight: 0.10  # 10% of customers
+    description: "Style-aware young man, interested in fitness and grooming"
+    demographics:
+      age_range: [17, 25]
+      gender: "Male"
+      has_children: false
+      lifestyle: "young_professional_student"
+    
+    department_preferences:
+      "Mens Clothing": 0.50
+      "Mens Accessories": 0.20
+      "Health & Beauty": 0.10
+      "Sports Shop": 0.15
+      "Accessories": 0.05
+    
+    class_preferences:
+      "Mens Clothing":
+        - "FASHION LEISURE"
+        - "FASHION LEISUREWEAR"
+        - "FASHION T-SHIRTS"
+        - "Mens Denim"
+        - "Mens Limited Edition"
+        - "FORMAL SHIRTS"
+        - "Knitwear"
+      "Mens Accessories":
+        - "Bags/Wallets"
+        - "BELTS"
+        - "Mens Jewellery"
+        - "Mens Sunglasses"
+        - "WATCHES"
+      "Health & Beauty":
+        - "Mens Grooming"
+        - "Fragrance"
+        - "Hair"
+    
+    spending_profile:
+      avg_order_value: [80, 140]
+      frequency_per_month: [1.5, 3.5]
+      typical_segment: "medium_value_regular"
+  
+  # ===== Persona 5: Woman with Baby =====
+  woman_with_baby:
+    weight: 0.08  # 8% of customers
+    description: "New mother, focused on baby essentials and practical items"
+    demographics:
+      age_range: [25, 38]
+      gender: "Female"
+      has_children: true
+      child_age: "baby"
+      lifestyle: "parent"
+    
+    department_preferences:
+      "Kids Clothing": 0.35
+      "Kids Accessories": 0.20
+      "Home": 0.15
+      "Health & Beauty": 0.12
+      "Uwear & Nwear": 0.10
+      "Ladies Clothing": 0.08
+    
+    class_preferences:
+      "Kids Clothing":
+        - "Babywear"
+        - "Baby Basics"
+        - "Baby Boy"
+        - "Baby Girl"
+        - "Newborn Boy"
+        - "Newborn Girl"
+      "Kids Accessories":
+        - "Baby Accessories"
+        - "Baby Footwear"
+        - "Baby Socks"
+      "Home":
+        - "Baby Bedding"
+        - "Baby Blankets"
+      "Uwear & Nwear":
+        - "Maternity"
+        - "SLEEPSUITS"
+        - "LOUNGEWEAR"
+      "Health & Beauty":
+        - "Kids Health and Beauty"
+        - "TISSUES"
+        - "Toiletries"
+    
+    spending_profile:
+      avg_order_value: [80, 180]
+      frequency_per_month: [3, 6]
+      typical_segment: "high_value_frequent"
+  
+  # ===== Persona 6: Woman with Young Family =====
+  woman_young_family:
+    weight: 0.12  # 12% of customers
+    description: "Mother with young children (2-10 years), family-focused shopper"
+    demographics:
+      age_range: [30, 45]
+      gender: "Female"
+      has_children: true
+      child_age: "young"
+      lifestyle: "parent"
+    
+    department_preferences:
+      "Kids Clothing": 0.30
+      "Kids Accessories": 0.15
+      "Ladies Clothing": 0.15
+      "Home": 0.15
+      "Health & Beauty": 0.10
+      "Xmas Shop": 0.08
+      "Primarket": 0.07
+    
+    class_preferences:
+      "Kids Clothing":
+        - "2-7 Girlswear"
+        - "2-7 Boyswear"
+        - "7+ Girlswear"
+        - "7+ Boyswear"
+        - "SCHOOLWEAR"
+        - "Kids Underwear"
+      "Kids Accessories":
+        - "Girls Accessories"
+        - "Boys Accessories"
+        - "Kids Footwear"
+        - "Girls Footwear"
+        - "Boys Footwear"
+      "Home":
+        - "Toys"
+        - "Kids Home"
+        - "Bedding"
+        - "Storage"
+      "Ladies Clothing":
+        - "Casual Bottoms"
+        - "Basic T Shirts"
+        - "Essential Jersey"
+        - "Casual Shorts"
+    
+    spending_profile:
+      avg_order_value: [90, 200]
+      frequency_per_month: [2.5, 5]
+      typical_segment: "high_value_frequent"
+  
+  # ===== Persona 7: Professional Woman (25-45) =====
+  professional_woman:
+    weight: 0.10  # 10% of customers
+    description: "Career-focused woman, business casual wardrobe, quality-conscious"
+    demographics:
+      age_range: [25, 45]
+      gender: "Female"
+      has_children: false
+      lifestyle: "professional"
+    
+    department_preferences:
+      "Ladies Clothing": 0.45
+      "Ladies Footwear": 0.15
+      "Health & Beauty": 0.15
+      "Accessories": 0.12
+      "Ladies Hosiery": 0.08
+      "Uwear & Nwear": 0.05
+    
+    class_preferences:
+      "Ladies Clothing":
+        - "Formal Jackets"
+        - "Formal Trousers"
+        - "FORMAL SKIRTS"
+        - "Trousers and Formal Jkts"
+        - "Smart Jersey Tops"
+        - "Contemporary Collections"
+        - "Coats"
+        - "Outerwear/Coats"
+      "Ladies Footwear":
+        - "Heels"
+        - "Flats"
+        - "Ladies Boots"
+        - "Casual Footwear"
+      "Accessories":
+        - "Ladies Belts"
+        - "Ladies Jewellery"
+        - "Purses"
+        - "Bags"
+        - "Ladies Sunglasses"
+      "Health & Beauty":
+        - "MAKE UP"
+        - "Skincare"
+        - "Fragrance"
+        - "Hair"
+    
+    spending_profile:
+      avg_order_value: [100, 220]
+      frequency_per_month: [1.5, 3.5]
+      typical_segment: "medium_value_regular"
+  
+  # ===== Persona 8: Professional Man (25-45) =====
+  professional_man:
+    weight: 0.10  # 10% of customers
+    description: "Career-oriented man, business attire, grooming conscious"
+    demographics:
+      age_range: [25, 45]
+      gender: "Male"
+      has_children: false
+      lifestyle: "professional"
+    
+    department_preferences:
+      "Mens Clothing": 0.55
+      "Mens Accessories": 0.20
+      "Health & Beauty": 0.10
+      "Ladies Footwear": 0.10  # Note: may buy for partner
+      "Accessories": 0.05
+    
+    class_preferences:
+      "Mens Clothing":
+        - "FORMAL JACKETS & TROUSERS"
+        - "FORMAL SHIRTS"
+        - "Formal Shirts & Ties"
+        - "Mens Formalwear"
+        - "Ties"
+        - "Knitwear"
+        - "Outerwear"
+      "Mens Accessories":
+        - "Bags/Wallets"
+        - "BELTS"
+        - "Socks"
+        - "Mens Jewellery"
+        - "Mens Sunglasses"
+      "Health & Beauty":
+        - "Mens Grooming"
+        - "Fragrance"
+    
+    spending_profile:
+      avg_order_value: [100, 250]
+      frequency_per_month: [1, 3]
+      typical_segment: "medium_value_regular"
+  
+  # ===== Persona 9: Budget-Conscious Shopper =====
+  budget_shopper:
+    weight: 0.10  # 10% of customers
+    description: "Value-seeking shopper, looks for deals, practical purchases"
+    demographics:
+      age_range: [18, 60]
+      gender: "Mixed"
+      has_children: null
+      lifestyle: "budget_conscious"
+    
+    department_preferences:
+      "Ladies Clothing": 0.20
+      "Mens Clothing": 0.15
+      "Home": 0.15
+      "Primarket": 0.15
+      "Health & Beauty": 0.10
+      "Kids Clothing": 0.10
+      "Accessories": 0.08
+      "Xmas Shop": 0.07
+    
+    class_preferences:
+      "Ladies Clothing":
+        - "Basic T Shirts"
+        - "Essential Jersey"
+        - "Casual Bottoms"
+      "Mens Clothing":
+        - "BASIC T-SHIRTS"
+        - "Basic Leisurewear"
+        - "CASUAL TROUSERS"
+      "Home":
+        - "Bathroom"
+        - "Kitchen"
+        - "Storage"
+        - "Paper Products"
+      "Primarket":
+        - "Food"
+        - "Paper"
+        - "Pet"
+      "Health & Beauty":
+        - "Toiletries"
+        - "Hygiene"
+        - "TISSUES"
+    
+    spending_profile:
+      avg_order_value: [20, 50]
+      frequency_per_month: [0.5, 1.5]
+      typical_segment: "churned_inactive"
+  
+  # ===== Persona 10: Mature Shopper (50+) =====
+  mature_shopper:
+    weight: 0.08  # 8% of customers
+    description: "Empty nester or retiree, home-focused, gift buyer"
+    demographics:
+      age_range: [50, 75]
+      gender: "Mixed"
+      has_children: null
+      lifestyle: "mature"
+    
+    department_preferences:
+      "Home": 0.30
+      "Xmas Shop": 0.15
+      "Ladies Clothing": 0.15
+      "Mens Clothing": 0.10
+      "Health & Beauty": 0.10
+      "Gift Cards": 0.10
+      "Primarket": 0.10
+    
+    class_preferences:
+      "Home":
+        - "Bedding"
+        - "Curtains"
+        - "CUSHIONS"
+        - "Living Cushions"
+        - "Living Throws"
+        - "Candles"
+        - "Home Accessories"
+        - "Kitchen"
+      "Xmas Shop":
+        - "CHRISTMAS GIFTS"
+        - "CARDS"
+        - "Wrapping/Bags"
+        - "Candles/Holders"
+      "Ladies Clothing":
+        - "Cardigans"
+        - "Jumpers"
+        - "Coats"
+      "Mens Clothing":
+        - "Knitwear"
+        - "Casual Shirts"
+      "Health & Beauty":
+        - "Skincare"
+        - "Health & Wellbeing"
+        - "Toiletries"
+      "Gift Cards":
+        - "Gift Cards"
+      "Primarket":
+        - "Gifts"
+        - "Books"
+    
+    spending_profile:
+      avg_order_value: [60, 140]
+      frequency_per_month: [1.5, 3.5]
+      typical_segment: "medium_value_regular"
+
+# ============================================================================
+# PERSONA NOTES
+# ============================================================================
+# - Weights must sum to 1.0 (currently: 1.00)
+# - Department preferences within each persona must sum to 1.0
+# - Class preferences are lists (not weighted) - random selection from list
+# - typical_segment maps to existing 4 segments for backwards compatibility
+# - Age ranges in demographics are [min, max] inclusive
+# - has_children can be: true, false, or null (unknown/mixed)

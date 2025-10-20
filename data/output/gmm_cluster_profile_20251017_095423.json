@@ -1,0 +1,98 @@
+{
+  "cluster_profiles": {
+    "0": {
+      "segment_name": "VIP Champions",
+      "description": "Medium-Value Highly Engaged Customers (Recent): This segment represents 13.6% of the customer base with average revenue of $14,642.42. They purchase approximately 4.1 times per month with an average order value of $140.70. Last purchase was 18 days ago on average.",
+      "characteristics": {
+        "size": 68,
+        "percentage": 13.6,
+        "avg_total_revenue": 14642.42,
+        "avg_total_purchases": 104.63,
+        "avg_order_value": 140.7,
+        "avg_recency_days": 18.28,
+        "avg_frequency": 4.06,
+        "avg_lifetime_months": 26.79,
+        "avg_return_rate": 0.054
+      },
+      "interaction_strategies": [
+        "Implement loyalty program with tiered rewards",
+        "Send personalized product recommendations",
+        "Offer bundle deals to increase order value"
+      ],
+      "cluster_id": 0
+    },
+    "1": {
+      "segment_name": "Promising Customers",
+      "description": "Low-Value Regularly Engaged Customers (Moderately Recent): This segment represents 24.6% of the customer base with average revenue of $2,619.18. They purchase approximately 2.7 times per month with an average order value of $131.76. Last purchase was 34 days ago on average.",
+      "characteristics": {
+        "size": 123,
+        "percentage": 24.6,
+        "avg_total_revenue": 2619.18,
+        "avg_total_purchases": 20.18,
+        "avg_order_value": 131.76,
+        "avg_recency_days": 33.83,
+        "avg_frequency": 2.66,
+        "avg_lifetime_months": 8.03,
+        "avg_return_rate": 0.091
+      },
+      "interaction_strategies": [
+        "Provide special discounts and promotions",
+        "Send educational content about product value",
+        "Create entry-level product bundles"
+      ],
+      "cluster_id": 1
+    },
+    "2": {
+      "segment_name": "Loyal Regulars",
+      "description": "Medium-Value Regularly Engaged Customers (Moderately Recent): This segment represents 36.8% of the customer base with average revenue of $7,384.14. They purchase approximately 2.5 times per month with an average order value of $129.37. Last purchase was 37 days ago on average.",
+      "characteristics": {
+        "size": 184,
+        "percentage": 36.8,
+        "avg_total_revenue": 7384.14,
+        "avg_total_purchases": 58.29,
+        "avg_order_value": 129.37,
+        "avg_recency_days": 37.42,
+        "avg_frequency": 2.51,
+        "avg_lifetime_months": 23.86,
+        "avg_return_rate": 0.093
+      },
+      "interaction_strategies": [
+        "Implement loyalty program with tiered rewards",
+        "Send personalized product recommendations",
+        "Offer bundle deals to increase order value"
+      ],
+      "cluster_id": 2
+    },
+    "3": {
+      "segment_name": "Hibernating",
+      "description": "Low-Value Regularly Engaged Customers (At-Risk): This segment represents 25.0% of the customer base with average revenue of $901.12. They purchase approximately 1.2 times per month with an average order value of $38.13. Last purchase was 147 days ago on average.",
+      "characteristics": {
+        "size": 125,
+        "percentage": 25.0,
+        "avg_total_revenue": 901.12,
+        "avg_total_purchases": 23.95,
+        "avg_order_value": 38.13,
+        "avg_recency_days": 146.66,
+        "avg_frequency": 1.23,
+        "avg_lifetime_months": 19.59,
+        "avg_return_rate": 0.23
+      },
+      "interaction_strategies": [
+        "Provide special discounts and promotions",
+        "Send educational content about product value",
+        "Create entry-level product bundles",
+        "Launch win-back campaign with special offers",
+        "Send re-engagement email sequence",
+        "Conduct customer feedback survey to understand concerns",
+        "Improve product descriptions and sizing guides",
+        "Offer virtual try-on or consultation services",
+        "Review product quality and customer expectations"
+      ],
+      "cluster_id": 3
+    }
+  },
+  "metadata": {
+    "n_clusters": 4,
+    "total_customers": 500
+  }
+}

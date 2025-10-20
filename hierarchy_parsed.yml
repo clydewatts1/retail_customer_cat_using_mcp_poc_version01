@@ -1,0 +1,416 @@
+departments:
+  Accessories:
+  - Bags
+  - BELTS
+  - CONFECTIONERY
+  - DUMMY
+  - GENTS ACCESSORIES
+  - Gloves
+  - Hair
+  - HAIR ACCESSORIES
+  - Hats
+  - HW Scarves
+  - JEWELLERY AND GIFTS
+  - Kids
+  - KIDS ACCESSORIES
+  - KIDS BAGS
+  - Ladies Belts
+  - LADIES GLOVES
+  - LADIES HATS
+  - LADIES HW SCARVES
+  - Ladies Jewellery
+  - Ladies Scarves
+  - Ladies Sunglasses
+  - Ladies Umbrellas
+  - Luggage
+  - LW SCARVES
+  - MAKE-UP BAGS
+  - Mens Accessories
+  - Purses
+  - READING GLASSES
+  - Sports Events D1
+  - SUNGLASSES
+  - UMBRELLAS
+  - UNASSIGNED D1
+  - Unknown
+  - WATCHES
+  - WORLD CUP
+  Bag Levy:
+  - Paper Bags
+  - UNASSIGNED D30
+  Concessions:
+  - Barbers
+  - Beauty Salon
+  - DUMMY
+  - Entertainment
+  - Pop-up Shop
+  - UNASSIGNED D28
+  Dummy:
+  - Dummy
+  Dummy Dept for TBC order:
+  - Dummy Clas for TBC order
+  Gift Cards:
+  - Gift Cards
+  - UNASSIGNED D32
+  Goods Not For Resale:
+  - Bags D31
+  - Baskets
+  - Consumables
+  - Epic Merch
+  - FSDU
+  - Mannequins
+  - Till Rolls
+  - UNASSIGNED D31
+  - Unknown
+  Health & Beauty:
+  - Accessories
+  - Beauty Essentials
+  - Branded Cosmetics
+  - Confectionery
+  - Cosmetics
+  - DUMMY
+  - EDB ACCESSORIES
+  - EDB COSMETICS
+  - EDB TOILETRIES
+  - Electricals
+  - Events
+  - False Nails and Lashes
+  - Fragrance
+  - GIFTS
+  - Hair
+  - Health & Wellbeing
+  - Hygiene
+  - Kids Health and Beauty
+  - Love Beauty
+  - MAKE UP
+  - Mens Grooming
+  - SKIN CARE
+  - Skincare
+  - SPECIAL OFFERS
+  - Tanning
+  - TISSUES
+  - Toiletries
+  - UNASSIGNED D23
+  - Unknown
+  - XMAS GIFTS
+  Home:
+  - Baby Bedding
+  - Baby Blankets
+  - Bathroom
+  - Candles
+  - Curtains
+  - CUSHIONS
+  - DUMMY
+  - DUVET COVERS
+  - Duvets
+  - Filled Product
+  - Home Accessories
+  - Kids Home
+  - KITCHEN
+  - Licensed Home
+  - Lifestyle
+  - Lights
+  - Living Cushions
+  - Living Throws
+  - LUGGAGE
+  - Paper
+  - Paper Products
+  - Pillows
+  - Plain Bedding
+  - Promotions
+  - Seasonal
+  - Speciality Bedding
+  - Sports Events D11
+  - Storage
+  - Throws
+  - Towels
+  - Toys
+  - Transfers
+  - UNASSIGNED D11
+  - Unknown
+  In-Store Charity:
+  - UNASSIGNED D33
+  Kids Accessories:
+  - Baby Accessories
+  - Baby Footwear
+  - Baby Socks
+  - Boys Accessories
+  - Boys Footwear
+  - Boys Nightwear
+  - Boys Socks
+  - Boys Underwear
+  - Girls Accessories
+  - Girls Footwear
+  - Girls Hosiery
+  - Girls Nightwear
+  - Girls Underwear
+  - Kids Accessories
+  - Kids Accessories Sports Events
+  - Kids Footwear
+  - Kids Hosiery
+  - Kids Nightwear
+  - Kids Underwear
+  - UNASSIGNED D15
+  - Unknown
+  Kids Clothing:
+  - 2-7 Boyswear
+  - 2-7 Girlswear
+  - 7+ Boyswear
+  - 7+ Girlswear
+  - Baby Basics
+  - Baby Boy
+  - Baby Girl
+  - Babywear
+  - CHILDRENS HOSIERY
+  - DUMMY
+  - Kids Hosiery
+  - Kids Nightwear
+  - Kids Sports Events
+  - Kids Underwear
+  - MISC
+  - Newborn Boy
+  - Newborn Girl
+  - OUTERWEAR
+  - SCHOOLWEAR
+  - UNASSIGNED D5
+  - UNDERWEAR
+  - Unknown
+  Ladies Clothing:
+  - Basic T Shirts
+  - Cardigans
+  - Casual Bottoms
+  - CASUAL JERSEY BOTTOMS
+  - CASUAL OUTERWEAR
+  - Casual Shorts
+  - Co-ordinates
+  - Coats
+  - Contemporary Collections
+  - Dresses & Skirts
+  - DUMMY
+  - Edit
+  - Essential Jersey
+  - Fashion Jersey
+  - Formal Jackets
+  - FORMAL SKIRTS
+  - Formal Trousers
+  - IRISH
+  - Jersey Tops Table
+  - Jumpers
+  - Ladies Denim
+  - Ladies Limited Edition
+  - Ladies Performancewear
+  - Ladies Shorts
+  - Licensed Womens
+  - LS Cotton Tops
+  - Maternity
+  - Outerwear/Coats
+  - Preloved
+  - Shorts
+  - Skirts
+  - Smart Jersey Tops
+  - Soft Skirts
+  - SPARE
+  - Sports Tops
+  - SPORTSWEAR
+  - Swim & Beach
+  - Tops
+  - Trousers and Formal Jkts
+  - UNASSIGNED D8
+  - Unknown
+  - Woven Tops & Bottoms
+  - Youth
+  Ladies Footwear:
+  - Babies
+  - Beach
+  - Casual Footwear
+  - DUMMY
+  - Flats
+  - Footwear Accessories
+  - Heels
+  - KIDS SHOES
+  - Kids Slippers
+  - Ladies Boots
+  - LADIES CANVAS
+  - Ladies Leisure
+  - LADIES SANDALS
+  - Ladies Slippers
+  - LADIES SPORTS & LEISURE
+  - Ladies Wide Fit
+  - MENS SLIPPERS
+  - Older Boys
+  - Older Girls
+  - Sandals
+  - Sports Events D7
+  - UNASSIGNED D7
+  - Unknown
+  - WIDE FIT
+  - Younger Boys
+  - Younger Girls
+  Ladies Hosiery:
+  - Broadfolds
+  - Control and Support
+  - DESIGN AND FASHION HOSIERY
+  - DUMMY
+  - Fashion Hosiery
+  - Fashion Socks
+  - KNEEHIGHS AND FOOTIES
+  - Ladies Socks
+  - Licensed Product
+  - MULTIPACKS
+  - Opaques
+  - OTHERS
+  - Patterned Socks
+  - Plain Socks
+  - Sheer Tights
+  - Shoe Liners
+  - Slipper Socks
+  - Sports Events D2
+  - Sports Socks
+  - UNASSIGNED D2
+  - Unknown
+  Mens Accessories:
+  - Bags/Wallets
+  - BELTS
+  - BOXERS
+  - BRIEFS
+  - Entertainment
+  - GIFTS
+  - GOWNS
+  - Mens Gifts
+  - Mens Jewellery
+  - Mens Non-Seasonal Access
+  - Mens Seasonal Accessories
+  - Mens Sunglasses
+  - Mens Umbrellas
+  - Mens Underwear
+  - PYJAMAS
+  - Robes
+  - SHOES
+  - Slippers
+  - Socks
+  - Sports Events D16
+  - SUNGLASSES
+  - UMBRELLAS
+  - UNASSIGNED D16
+  - Unknown
+  - Vests
+  - VESTS/THERMALS
+  - WORLD CUP
+  Mens Clothing:
+  - Basic Leisurewear
+  - BASIC T-SHIRTS
+  - BOXERS
+  - Casual Shirts
+  - CASUAL TROUSERS
+  - DENIM
+  - DUMMY
+  - FASHION LEISURE
+  - FASHION LEISUREWEAR
+  - FASHION T-SHIRTS
+  - FORMAL JACKETS & TROUSERS
+  - FORMAL SHIRTS
+  - Formal Shirts & Ties
+  - JACKETS
+  - Knitwear
+  - L/S T-Shirts
+  - Licensed Local Sports
+  - Licensed T-Shirts
+  - LONG-SLEEVE T-SHIRTS
+  - Mens Casual Trousers
+  - Mens Denim
+  - Mens Formalwear
+  - Mens Leisurewear
+  - Mens Limited Edition
+  - Mens Performancewear
+  - Mens Shorts
+  - Mens Swimwear
+  - Outerwear
+  - Preloved
+  - SHORTS
+  - Ties
+  - UNASSIGNED D6
+  - Unknown
+  - WORLD CUP
+  Primarket:
+  - DUMMY
+  - Entertainment
+  - Events
+  - Experiences
+  - Food
+  - Gifts
+  - Inflatables
+  - Paper
+  - Pet
+  - Stationery
+  - Technology
+  - Toys
+  - Travel
+  - UNASSIGNED D25
+  - Unknown
+  Sports Shop:
+  - DUMMY
+  - Kids
+  - Ladies
+  - LADIES BRANDED
+  - LADIES PERFORMANCE
+  - Mens
+  - MENS BRANDED
+  - MENS PERFORMANCE
+  - Socks
+  - UNASSIGNED
+  - Unknown
+  Uwear & Nwear:
+  - Beachwear
+  - BRA ACCESSORIES
+  - Bras
+  - Camisoles
+  - Co-ordinates D4
+  - CO-ORDS
+  - Comfort Briefs
+  - DUMMY
+  - Folded Pyjamas
+  - GLAMOUR
+  - Glamour Nightwear
+  - HANGING PYJAMAS
+  - Ladies Swimwear
+  - Licensed Nightwear
+  - LOUNGEWEAR
+  - Maternity
+  - Nightshirts
+  - Onesies & Twosies
+  - Packed Briefs
+  - PJ Separates
+  - ROBES
+  - SEPARATES
+  - Sets
+  - Shapewear
+  - SHAPEWEAR SOLUTIONS-SHAPEWEAR
+  - SLEEPSUITS
+  - SMOOTHLINE
+  - SPECIALIST BRIEFS
+  - Sports Events D4
+  - SWIMWEAR
+  - Table Briefs
+  - THERMAL
+  - UK DISCONTINUED
+  - UNASSIGNED D4
+  - Unknown
+  - WORLD CUP
+  Xmas Shop:
+  - All Year Around
+  - Books
+  - Candles/Holders
+  - CARDS
+  - CHRISTMAS GIFTS
+  - CRACKERS
+  - DUMMY
+  - Halloween
+  - Lights
+  - Room Theme
+  - Soft Toys
+  - Toys
+  - TREE DECORATIONS
+  - Trees/Garlands
+  - UNASSIGNED
+  - Unknown
+  - Wrapping/Bags

@@ -256,6 +256,24 @@ def plot_size_distribution(data, cluster_labels, enriched_profiles):
     return fig
 
 
+def plot_persona_type_by_cluster(data, cluster_labels, enriched_profiles):
+    """Plot persona type distribution by cluster."""
+    data_with_clusters = data.copy()
+    data_with_clusters['cluster'] = cluster_labels
+    # Use persona_type from enriched data
+    if 'persona_type' not in data_with_clusters.columns:
+        print("persona_type column not found in data.")
+        return None
+    fig, ax = plt.subplots(figsize=(12, 6))
+    persona_cluster_counts = data_with_clusters.groupby(['cluster', 'persona_type']).size().unstack(fill_value=0)
+    persona_cluster_counts.plot(kind='bar', stacked=True, ax=ax, colormap='tab20')
+    ax.set_xlabel('Cluster Number')
+    ax.set_ylabel('Number of Customers')
+    ax.set_title('Persona Type Distribution by Cluster')
+    ax.legend(title='Persona Type', bbox_to_anchor=(1.05, 1), loc='upper left')
+    plt.tight_layout()
+    return fig
+
 def main():
     """Generate and visualize customer segmentation."""
     
@@ -268,38 +286,68 @@ def main():
     print(f"Current working directory: {os.getcwd()}")
     
     # Get parameters from config
-    num_customers = config.data_generation['n_customers']
+    num_customers = config.data_generation.get('n_customers', 10000)
     seed = config.data_generation['random_seed']
     fuzzy_params = config.fuzzy_clustering
+    use_personas = config.data_generation.get('use_personas', True)
+    use_enriched_features = config.fuzzy_clustering.get('use_enriched_features', True)
     
-    # Generate enriched data
+    # Generate enriched data with persona support
     faker_cfg = config.data_generation.get('faker', {}) if isinstance(config.data_generation, dict) else {}
+    personas_path = config.data_generation.get('personas_config_file', 'config/personas.yml')
+    hierarchy_path = config.data_generation.get('hierarchy_config_file', 'hierarchy_parsed.yml')
+    
     generator = RetailDataGenerator(
         seed=seed,
         faker_enabled=faker_cfg.get('enabled', True),
-        faker_locale=faker_cfg.get('locale', 'en_US')
+        faker_locale=faker_cfg.get('locale', 'en_US'),
+        use_personas=use_personas,
+        personas_config_path=personas_path,
+        hierarchy_config_path=hierarchy_path
     )
-    customer_data = generator.generate_customer_data(n_customers=num_customers)
     
-    # Save enriched data using config paths
+    # Generate datasets according to config
+    dataset_type = 'both' if use_enriched_features else 'basic'
+    customer_data_enriched = generator.generate_customer_data(
+        n_customers=num_customers,
+        dataset_type=dataset_type  # This saves basic dataset and returns enriched
+    )
+    
+    # Save enriched dataset and load basic dataset
     data_dir = Path(__file__).parent.parent / config.paths['data_dir']
     data_dir.mkdir(parents=True, exist_ok=True)
-    enriched_data_path = data_dir / "customer_sales_data_enriched.csv"
-    generator.save_data(customer_data, str(enriched_data_path))
-    print(f"Generated {len(customer_data)} customer records with enriched features")
+    basic_path = data_dir / Path(config.data_generation.get('basic_dataset_path', 'customer_sales_data_basic.csv')).name
+    enriched_data_path = data_dir / Path(config.data_generation.get('enriched_dataset_path', 'customer_sales_data_enriched.csv')).name
+    
+    # Read the basic dataset that was auto-saved (if exists)
+    if basic_path.exists():
+        customer_data_basic = pd.read_csv(basic_path)
+    else:
+        customer_data_basic = customer_data_enriched  # Use enriched if basic not available
+    
+    # Save enriched dataset
+    generator.save_data(customer_data_enriched, str(enriched_data_path))
+    
+    print(f"Generated {len(customer_data_basic)} customer records")
+    if customer_data_basic is not customer_data_enriched:
+        print(f"  - Basic dataset: {len(customer_data_basic.columns)} features (for clustering)")
+    print(f"  - Enriched dataset: {len(customer_data_enriched.columns)} features (for visualization)")
+    
+    # Use enriched dataset for clustering if configured
+    clustering_data = customer_data_enriched if use_enriched_features else customer_data_basic
     
     # Perform fuzzy clustering with config parameters
     fuzzy_model = FuzzyCustomerSegmentation(
-        n_clusters=fuzzy_params.get('n_clusters', 4),
+        n_clusters=fuzzy_params.get('n_clusters', config.fuzzy_clustering.get('n_clusters', 13)),
         m=fuzzy_params.get('fuzziness_parameter', 2.0),
         seed=seed
     )
-    cluster_labels, membership_matrix = fuzzy_model.fit_predict(customer_data)
+    cluster_labels, membership_matrix = fuzzy_model.fit_predict(clustering_data)
     
-    # Enrich clusters
+    # Enrich clusters (using ENRICHED dataset for visualization)
     enrichment = ClusterEnrichment()
     cluster_centers = fuzzy_model.get_cluster_centers()
-    enriched_profiles = enrichment.enrich_clusters(customer_data, cluster_labels, cluster_centers)
+    enriched_profiles = enrichment.enrich_clusters(customer_data_enriched, cluster_labels, cluster_centers)
     
     print("Creating visualizations...")
     
@@ -312,18 +360,18 @@ def main():
     dpi = viz_config.get('dpi', 150)
     format = viz_config.get('figure_format', 'png')
     
-    # Generate plots
-    fig1 = plot_cluster_distribution(customer_data, cluster_labels, enriched_profiles)
+    # Generate plots (using ENRICHED dataset for detailed visualizations)
+    fig1 = plot_cluster_distribution(customer_data_enriched, cluster_labels, enriched_profiles)
     output_path = viz_dir / f"cluster_distribution.{format}"
     fig1.savefig(output_path, dpi=dpi, bbox_inches='tight')
     print(f"✓ Saved: {output_path}")
     
-    fig2 = plot_segment_characteristics(customer_data, cluster_labels, enriched_profiles)
+    fig2 = plot_segment_characteristics(customer_data_enriched, cluster_labels, enriched_profiles)
     output_path = viz_dir / f"segment_characteristics.{format}"
     fig2.savefig(output_path, dpi=dpi, bbox_inches='tight')
     print(f"✓ Saved: {output_path}")
     
-    fig3 = plot_rfm_scatter(customer_data, cluster_labels, enriched_profiles)
+    fig3 = plot_rfm_scatter(customer_data_enriched, cluster_labels, enriched_profiles)
     output_path = viz_dir / f"rfm_scatter.{format}"
     fig3.savefig(output_path, dpi=dpi, bbox_inches='tight')
     print(f"✓ Saved: {output_path}")
@@ -333,18 +381,25 @@ def main():
     fig4.savefig(output_path, dpi=dpi, bbox_inches='tight')
     print(f"✓ Saved: {output_path}")
     
-    fig5 = plot_department_preferences(customer_data, cluster_labels, enriched_profiles)
+    fig5 = plot_department_preferences(customer_data_enriched, cluster_labels, enriched_profiles)
     if fig5:
         output_path = viz_dir / f"department_preferences.{format}"
         fig5.savefig(output_path, dpi=dpi, bbox_inches='tight')
         print(f"✓ Saved: {output_path}")
     
-    fig6 = plot_size_distribution(customer_data, cluster_labels, enriched_profiles)
+    fig6 = plot_size_distribution(customer_data_enriched, cluster_labels, enriched_profiles)
     if fig6:
         output_path = viz_dir / f"size_distribution.{format}"
         fig6.savefig(output_path, dpi=dpi, bbox_inches='tight')
         print(f"✓ Saved: {output_path}")
     
+    # Plot persona type by cluster and save
+    fig7 = plot_persona_type_by_cluster(customer_data_enriched, cluster_labels, enriched_profiles)
+    if fig7:
+        output_path = viz_dir / f"persona_type_by_cluster.{format}"
+        fig7.savefig(output_path, dpi=dpi, bbox_inches='tight')
+        print(f"✓ Saved: {output_path}")
+
     print(f"\nAll visualizations saved to {viz_dir}")
     print("\nVisualization Summary:")
     print("  1. cluster_distribution - Shows how customers are distributed across segments")
@@ -353,6 +408,7 @@ def main():
     print("  4. membership_heatmap - Fuzzy membership degrees for sample customers")
     print("  5. department_preferences - Department spending patterns by segment")
     print("  6. size_distribution - Size/age breakdown by segment")
+    print("  7. persona_type_by_cluster - Persona type distribution by cluster")
     print(f"\nEnriched data includes department/class totals and size breakdowns")
     print(f"Configuration: {num_customers} customers, {fuzzy_params.get('n_clusters', 4)} clusters, seed={seed}")
 
