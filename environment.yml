@@ -1,0 +1,24 @@
+name: retail_customer_cat
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - jupyter
+  - jupyterlab
+  - notebook
+  - ipykernel
+  - numpy
+  - pandas
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - scipy
+  - scikit-fuzzy
+  - tensorflow
+  - keras
+  - plotly
+  - pip:
+    - jupyter-contrib-nbextensions
+    - jupyter-nbextensions-configurator
